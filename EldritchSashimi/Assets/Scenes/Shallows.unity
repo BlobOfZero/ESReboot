@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fb3b0eefc76fb49999067e75f01728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayspawnrate: 5
+  delayspawnrate: 10
   enemyPrefabs: {fileID: 1500103317}
   CanSpawn: 1
 --- !u!1 &203688570
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fb3b0eefc76fb49999067e75f01728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayspawnrate: 5
+  delayspawnrate: 10
   enemyPrefabs: {fileID: 1500103317}
   CanSpawn: 1
 --- !u!1001 &259751128
@@ -2586,6 +2586,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 053cce96a2ed73149a0804f8119d6528,
+        type: 3}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: CooldownTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: CooldownTimeSpecial
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: CooldownTimeUltimate
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3415154246473212446, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: knifeDamage
@@ -2678,18 +2699,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1367262642}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1367262644 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1367262642}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c6a14a1da291a4d824dd38cd71b63a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1405898489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2836,7 @@ PrefabInstance:
     - target: {fileID: 3572782229812908227, guid: 554ebc46c8196864cbd562c2b7213b46,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.34
+      value: -95.6
       objectReference: {fileID: 0}
     - target: {fileID: 3572782229812908227, guid: 554ebc46c8196864cbd562c2b7213b46,
         type: 3}
@@ -3143,7 +3152,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1367262644}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
