@@ -9,16 +9,45 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     [SerializeField] private float health;
 
+    [SerializeField] private float CooldownTimeSpecial;
+    [SerializeField] private float CooldownTimeUltimate;
+    [SerializeField] private float nextFireTimeSpecial;
+    [SerializeField] private float nextFireTimeUltimate;
+
+    public InputActionAsset actions;
+    
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         health = 3;
+        actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
+        actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
+    }
+
+    public void OnSpecial(InputAction.CallbackContext context)
+    {
+        if (Time.time > nextFireTimeSpecial)
+        {
+            Debug.Log("special move");
+            nextFireTimeSpecial = Time.time + CooldownTimeSpecial;
+        }
+        
+    }
+
+    public void OnUltimate(InputAction.CallbackContext context)
+    {
+        if (Time.time > nextFireTimeUltimate)
+        {
+            Debug.Log("ultimate move");
+            nextFireTimeUltimate = Time.time + CooldownTimeUltimate;
+        }
     }
 
     private void Update()

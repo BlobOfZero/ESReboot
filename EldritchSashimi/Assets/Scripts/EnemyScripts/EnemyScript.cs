@@ -28,6 +28,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
         agent = GetComponent<NavMeshAgent>();
     }
 
+
     // Update is called once per frame
     void Update()
     {

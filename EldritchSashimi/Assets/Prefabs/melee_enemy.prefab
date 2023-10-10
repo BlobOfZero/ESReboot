@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3353935439485846987}
-  player: {fileID: 0}
+  player: {fileID: 4625334799833352044, guid: 670cc34b8ee681846ab0661188328ea7, type: 3}
   speed: 2
   WhatIsPlayer:
     serializedVersion: 2
