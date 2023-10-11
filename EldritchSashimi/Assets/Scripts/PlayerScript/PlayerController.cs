@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         float startTime = Time.time;
         while (Time.time < startTime + dashTime) 
         {
-            controller.Move(Vector3.forward * dashSpeed * Time.deltaTime);
+            controller.Move(transform.forward * dashSpeed * Time.deltaTime);
             yield return null;
         }
     }
