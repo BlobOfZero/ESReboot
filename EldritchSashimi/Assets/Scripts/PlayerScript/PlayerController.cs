@@ -1,27 +1,57 @@
 using UnityEngine;
+using System.Collections;
+using  System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IDamageablePlayer
 {
+    [Header("Movement Variables")]
+    //**********************************************************
     public float speed;
     private Vector2 move;
     public CharacterController controller;
+    //**********************************************************
 
+    [Header("health")]
+    //**********************************************************
     [SerializeField] private float health;
+    //**********************************************************
+    [Header("Regular Dash")]
+    //**********************************************************
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime;
+    //**********************************************************
 
-    [SerializeField] private float CooldownTimeSpecial;
-    [SerializeField] private float CooldownTimeUltimate;
+    [Header("Special/Ultimate cooldowns")]
+    //**********************************************************
+    [SerializeField] private float cooldownTimeSpecial;
+    [SerializeField] private float cooldownTimeUltimate;
     [SerializeField] private float nextFireTimeSpecial;
     [SerializeField] private float nextFireTimeUltimate;
+    //**********************************************************
 
+    [Header("for special 1")]
+    //**********************************************************
+    [SerializeField] private float dashAttackSpeed;
+    [SerializeField] private float dashAttackTime;
+    [SerializeField] private GameObject dashAttack;
+    //**********************************************************
+    [Header("Id's for special/ultimate moves")]
+    //**********************************************************
+    public int SpecialMoves;
+    public int UltimateMoves;
+    //**********************************************************
+    [Header("Inputs")]
+    //**********************************************************
     public InputActionAsset actions;
-    
+    //**********************************************************
 
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         health = 3;
+        actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
     }
@@ -31,24 +61,101 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         move = context.ReadValue<Vector2>();
     }
 
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        StartCoroutine(Dash());
+    }
+
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        if (Time.time > nextFireTimeSpecial)
+        switch (SpecialMoves)
         {
-            Debug.Log("special move");
-            nextFireTimeSpecial = Time.time + CooldownTimeSpecial;
+            case 1:
+
+                if (Time.time > nextFireTimeSpecial)
+                {
+
+                    Debug.Log("special move1");
+                    StartCoroutine(DashAttack());
+                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                }
+                break;
+
+            case 2:
+
+                if (Time.time > nextFireTimeSpecial)
+                {
+                    Debug.Log("special move2");
+
+                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                }
+                break;
+
+            case 3:
+
+                if (Time.time > nextFireTimeSpecial)
+                {
+                    Debug.Log("special move3");
+
+                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                }
+                break;
+
+            case 4:
+
+                if (Time.time > nextFireTimeSpecial)
+                {
+                    Debug.Log("special move4");
+
+                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                }
+                break;
         }
-        
+
+
+
+
     }
 
     public void OnUltimate(InputAction.CallbackContext context)
     {
-        if (Time.time > nextFireTimeUltimate)
+        switch (UltimateMoves)
         {
-            Debug.Log("ultimate move");
-            nextFireTimeUltimate = Time.time + CooldownTimeUltimate;
+            case 1:
+                if (Time.time > nextFireTimeUltimate)
+                {
+                    Debug.Log("ultimate move1");
+                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                }
+                break;
+
+            case 2:
+                if (Time.time > nextFireTimeUltimate)
+                {
+                    Debug.Log("ultimate move2");
+                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                }
+                break;
+
+            case 3:
+                if (Time.time > nextFireTimeUltimate)
+                {
+                    Debug.Log("ultimate move3");
+                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                }
+                break;
+
+            case 4:
+                if (Time.time > nextFireTimeUltimate)
+                {
+                    Debug.Log("ultimate move4");
+                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                }
+                break;
         }
     }
+
+    
 
     private void Update()
     {
@@ -73,8 +180,33 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         Debug.Log("Game quit");
     }
 
+    IEnumerator Dash()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + dashTime)
+        {         
+            controller.Move(transform.forward * dashSpeed * Time.deltaTime);
+            yield return null;
+        }      
+    }
+
+    IEnumerator DashAttack()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + dashAttackTime) 
+        {
+            dashAttack.gameObject.SetActive(true);
+            controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
+            yield return null;
+        }
+        dashAttack.gameObject.SetActive(false);
+    }
+
+    //this is from the IdamageablePlayer Interface
+    //************************************************
     public void DamagePlayer(float damageAmount)
     {
         health -= damageAmount;
     }
+   //************************************************
 }
