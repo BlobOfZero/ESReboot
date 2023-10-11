@@ -5,30 +5,53 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IDamageablePlayer
 {
+    [Header("Movement Variables")]
+    //**********************************************************
     public float speed;
     private Vector2 move;
     public CharacterController controller;
+    //**********************************************************
 
+    [Header("health")]
+    //**********************************************************
     [SerializeField] private float health;
+    //**********************************************************
+    [Header("Regular Dash")]
+    //**********************************************************
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime;
+    //**********************************************************
 
+    [Header("Special/Ultimate cooldowns")]
+    //**********************************************************
     [SerializeField] private float cooldownTimeSpecial;
     [SerializeField] private float cooldownTimeUltimate;
     [SerializeField] private float nextFireTimeSpecial;
     [SerializeField] private float nextFireTimeUltimate;
+    //**********************************************************
 
-
-    [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashTime;
-     public int SpecialMoves;
-     public int UltimateMoves;
-     public InputActionAsset actions;
-    
+    [Header("for special 1")]
+    //**********************************************************
+    [SerializeField] private float dashAttackSpeed;
+    [SerializeField] private float dashAttackTime;
+    [SerializeField] private GameObject dashAttack;
+    //**********************************************************
+    [Header("Id's for special/ultimate moves")]
+    //**********************************************************
+    public int SpecialMoves;
+    public int UltimateMoves;
+    //**********************************************************
+    [Header("Inputs")]
+    //**********************************************************
+    public InputActionAsset actions;
+    //**********************************************************
 
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         health = 3;
+        actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
     }
@@ -36,6 +59,11 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        StartCoroutine(Dash());
     }
 
     public void OnSpecial(InputAction.CallbackContext context)
@@ -127,6 +155,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }
     }
 
+    
+
     private void Update()
     {
         MovePlayer();
@@ -150,14 +180,26 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         Debug.Log("Game quit");
     }
 
+    IEnumerator Dash()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + dashTime)
+        {         
+            controller.Move(transform.forward * dashSpeed * Time.deltaTime);
+            yield return null;
+        }      
+    }
+
     IEnumerator DashAttack()
     {
         float startTime = Time.time;
-        while (Time.time < startTime + dashTime) 
+        while (Time.time < startTime + dashAttackTime) 
         {
-            controller.Move(transform.forward * dashSpeed * Time.deltaTime);
+            dashAttack.gameObject.SetActive(true);
+            controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
             yield return null;
         }
+        dashAttack.gameObject.SetActive(false);
     }
 
     //this is from the IdamageablePlayer Interface
