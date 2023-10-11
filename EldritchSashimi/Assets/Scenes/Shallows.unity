@@ -2594,8 +2594,28 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
+      propertyPath: dashTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
       propertyPath: CooldownTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: SpecialMoves
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: UltimateMoves
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
@@ -2604,8 +2624,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
+      propertyPath: cooldownTimeSpecial
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
       propertyPath: CooldownTimeUltimate
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: cooldownTimeUltimate
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3415154246473212446, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
