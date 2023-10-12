@@ -129,6 +129,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1367262642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &112198914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3415154246473212446, guid: 670cc34b8ee681846ab0661188328ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1367262642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112198913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e15e42f485ebe4ea54e7374f4be4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &164301047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2581,6 +2593,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600292994900572939, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: ultimateDamage
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 987513904094866421, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: m_Name
@@ -2599,9 +2616,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
+      propertyPath: WeaponIDs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
       propertyPath: dashSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: knifeattack
+      value: 
+      objectReference: {fileID: 112198914}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: CooldownTime
@@ -2611,6 +2638,16 @@ PrefabInstance:
         type: 3}
       propertyPath: SpecialMoves
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: buffDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: ultimateBuff
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
@@ -2624,8 +2661,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
+      propertyPath: ultimateAttack
+      value: 
+      objectReference: {fileID: 1942594531}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
       propertyPath: dashAttackSpeed
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: cooldowndashTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: ultimateknifetime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
@@ -2645,7 +2697,7 @@ PrefabInstance:
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: cooldownTimeUltimate
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1596269830184880720, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
@@ -2720,7 +2772,7 @@ PrefabInstance:
     - target: {fileID: 5274477048180613884, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: dashDamage
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5985215688275541135, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
@@ -2737,6 +2789,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1e2c2968ba66dbc498f2811fe4f9b77d, type: 2}
+    - target: {fileID: 8798717685939883903, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2902743026683936486, guid: 670cc34b8ee681846ab0661188328ea7, type: 3}
@@ -3453,6 +3510,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844452861}
   m_CullTransparentMesh: 1
+--- !u!1 &1942594531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8798717685939883903, guid: 670cc34b8ee681846ab0661188328ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1367262642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1945789388
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnifeAttack : MonoBehaviour
+public class UltimateAoE : MonoBehaviour
 {
-    public float knifeDamage;
+    [SerializeField] private float ultimateDamage;
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out IDamageable Damage))
         {
-            Damage.Damage(knifeDamage);
+            Damage.Damage(ultimateDamage);
 
         }
     }

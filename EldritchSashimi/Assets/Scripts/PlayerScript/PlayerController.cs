@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************************
     [SerializeField] private float health;
     //**********************************************************
+
     [Header("Regular Dash")]
     //**********************************************************
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
+    [SerializeField] private float cooldowndashTime;
+    [SerializeField] private float nextdashTime;
     //**********************************************************
 
     [Header("Special/Ultimate cooldowns")]
@@ -36,21 +39,35 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private float dashAttackTime;
     [SerializeField] private GameObject dashAttack;
     //**********************************************************
+
+    [Header("ultimate 1 variables")]
+    //**********************************************************
+    [SerializeField] private GameObject ultimateAttack;
+    [SerializeField] private float ultimateknifetime;
+    //**********************************************************
+
     [Header("Id's for special/ultimate moves")]
     //**********************************************************
-    public int SpecialMoves;
-    public int UltimateMoves;
+    public int WeaponIDs;
     //**********************************************************
+
     [Header("Inputs")]
     //**********************************************************
     public InputActionAsset actions;
     //**********************************************************
 
+    //refrences
+    //**********************************************************
+    private KnifeAttack knifeattack;
+    //**********************************************************
+
+   
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         health = 3;
+        knifeattack = GetComponent<KnifeAttack>();
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
@@ -63,12 +80,16 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        StartCoroutine(Dash());
+        if (Time.time > nextdashTime)
+        {
+            StartCoroutine(Dash());
+            nextdashTime = Time.time + cooldowndashTime;
+        }
     }
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
-        switch (SpecialMoves)
+        switch (WeaponIDs)
         {
             case 1:
 
@@ -119,12 +140,15 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     public void OnUltimate(InputAction.CallbackContext context)
     {
-        switch (UltimateMoves)
+        switch (WeaponIDs)
         {
             case 1:
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move1");
+
+                    StartCoroutine(KnifeUltimate());
+
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
                 }
                 break;
@@ -202,9 +226,20 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         dashAttack.gameObject.SetActive(false);
     }
 
-    //this is from the IdamageablePlayer Interface
-    //************************************************
-    public void DamagePlayer(float damageAmount)
+    IEnumerator KnifeUltimate()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + ultimateknifetime)
+        {
+            ultimateAttack.gameObject.SetActive(true);
+            
+            yield return null;
+        }
+       ultimateAttack.gameObject.SetActive(false);
+    }
+        //this is from the IdamageablePlayer Interface
+        //************************************************
+        public void DamagePlayer(float damageAmount)
     {
         health -= damageAmount;
     }
