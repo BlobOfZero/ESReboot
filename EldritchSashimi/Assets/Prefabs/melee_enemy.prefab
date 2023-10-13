@@ -110,6 +110,8 @@ MonoBehaviour:
   PlayerInAttackRange: 0
   AttackRange: 3
   health: 3
+  coinPrefab: {fileID: 6497540146959266414, guid: e4c86727e8587314790a1a88f01b813f,
+    type: 3}
 --- !u!65 &2685539446598050373
 BoxCollider:
   m_ObjectHideFlags: 0

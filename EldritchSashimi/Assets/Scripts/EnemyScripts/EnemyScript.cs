@@ -20,8 +20,10 @@ public class EnemyScript : MonoBehaviour, IDamageable
 
     [SerializeField] private float AttackRange;
 
-
     [SerializeField] private float health = 3;
+
+    // Coin prefab for drop
+    public GameObject coinPrefab;
 
     void awake()
     {
@@ -75,6 +77,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(coinPrefab, transform.position, transform.rotation);
         }
     }
 }

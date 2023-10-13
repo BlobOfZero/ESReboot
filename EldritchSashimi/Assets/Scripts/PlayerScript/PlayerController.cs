@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     private KnifeAttack knifeattack;
     //**********************************************************
 
-   
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
