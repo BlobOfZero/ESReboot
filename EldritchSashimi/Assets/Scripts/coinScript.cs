@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class coinScript : MonoBehaviour
 {
-    GameManager gameManager;
+    public int value;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Coin collected");
             Destroy(gameObject);
-            gameManager.IncreaseCoins(100);
+            GameManager.instance.IncreaseCoins(value);
         }
     }
 }
