@@ -9,14 +9,17 @@ public class LevelTimer : MonoBehaviour
     //**********************************
     public GameObject shopUI;
     [SerializeField] private TextMeshProUGUI coinText;
-    public float timeRemaining = 10;
+    public float timeRemaining;
+    public float maxTime = 10;
     public bool timerIsRunning = false;
+    public GameManager manager;
     //**********************************
 
     private void Start()
     {
         // Starts the timer automatically
         timerIsRunning = true;
+        maxTime = timeRemaining;
         shopUI.SetActive(false);
         
     }
@@ -42,5 +45,7 @@ public class LevelTimer : MonoBehaviour
     {
         shopUI.SetActive(false);
         Time.timeScale = 1;
+        timeRemaining = maxTime;
+        timerIsRunning = true;
     }
 }

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI coinText;
     public static GameManager instance;
-     public int playerCoins;
+    public int playerCoins;
 
     private void Awake()
     {
@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     public void IncreaseCoins(int value)
     {
         playerCoins += value;
+        coinText.text = "Coins: " + playerCoins.ToString();
+    }
+    public void DecreaseCoins(int value)
+    {
+        playerCoins -= value;
         coinText.text = "Coins: " + playerCoins.ToString();
     }
 }
