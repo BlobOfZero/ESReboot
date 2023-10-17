@@ -21,10 +21,10 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************************
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
-    [SerializeField] private float cooldowndashTime;
+    public float cooldowndashTime;
     [SerializeField] private float nextdashTime;
     //**********************************************************
-
+    
     [Header("Special/Ultimate cooldowns")]
     //**********************************************************
     [SerializeField] private float cooldownTimeSpecial;
