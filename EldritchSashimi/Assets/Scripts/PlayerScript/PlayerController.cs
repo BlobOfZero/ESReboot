@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     
     [Header("Special/Ultimate cooldowns")]
     //**********************************************************
-    [SerializeField] private float cooldownTimeSpecial;
-    [SerializeField] private float cooldownTimeUltimate;
+    public float cooldownTimeSpecial;
+    public float cooldownTimeUltimate;
     [SerializeField] private float nextFireTimeSpecial;
     [SerializeField] private float nextFireTimeUltimate;
     //**********************************************************
