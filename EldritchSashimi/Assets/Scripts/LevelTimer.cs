@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelTimer : MonoBehaviour
 {
@@ -44,8 +45,14 @@ public class LevelTimer : MonoBehaviour
     public void LeaveeShop()
     {
         shopUI.SetActive(false);
-        Time.timeScale = 1;
+        /* Time.timeScale = 1;
         timeRemaining = maxTime;
-        timerIsRunning = true;
+        timerIsRunning = true; */
+        SceneManager.LoadScene(2);
+    }
+
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }
