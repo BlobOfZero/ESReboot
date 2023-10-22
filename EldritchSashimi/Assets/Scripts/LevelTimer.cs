@@ -24,7 +24,7 @@ public class LevelTimer : MonoBehaviour
         timerIsRunning = true;
         maxTime = timeRemaining;
         shopUI.SetActive(false);
-        timerText.text = timeRemaining.ToString();
+        timerText.text = timeRemaining.ToString("0.0");
     }
     void Update()
     {
@@ -42,7 +42,7 @@ public class LevelTimer : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-        timerText.text = timeRemaining.ToString();
+        timerText.text = timeRemaining.ToString("0.0");
     }
 
     public void LeaveeShop()
