@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     [Header("health")]
     //**********************************************************
-    [SerializeField] private float health;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
+    bool isDead;
     //**********************************************************
 
     [Header("Regular Dash")]
@@ -65,7 +67,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        health = 3;
+        maxHealth = 3;
+        currentHealth = maxHealth;
+        isDead = false;
         knifeattack = GetComponent<KnifeAttack>();
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
@@ -183,6 +187,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     private void Update()
     {
         MovePlayer();
+
+        if(currentHealth <= 0)
+        {
+            isDead = true;
+            Debug.Log("player dead");
+        }
     }
 
     public void MovePlayer()
@@ -195,12 +205,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }
 
         controller.Move(movement * speed * Time.deltaTime);
-    }
-
-    public void QuitButton()
-    {
-        Application.Quit();
-        Debug.Log("Game quit");
     }
 
     IEnumerator Dash()
@@ -240,7 +244,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         //************************************************
         public void DamagePlayer(float damageAmount)
     {
-        health -= damageAmount;
+        currentHealth -= damageAmount;
     }
    //************************************************
 }

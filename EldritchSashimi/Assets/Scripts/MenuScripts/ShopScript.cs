@@ -64,4 +64,18 @@ public class ShopScript : MonoBehaviour
         purchaseAudio.Play();
         manager.DecreaseCoins(100);
     }
+
+    public void ChopstickPurchase()
+    {
+        PA.WeaponID = 2;
+        purchaseAudio.Play();
+        manager.DecreaseCoins(100);
+    }
+
+    public void KatanaPurchase()
+    {
+        PA.WeaponID = 3;
+        purchaseAudio.Play();
+        manager.DecreaseCoins(100);
+    }
 }
