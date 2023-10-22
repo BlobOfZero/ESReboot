@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
+        Time.timeScale = 1;
     }
 
     public void OnMove(InputAction.CallbackContext context)
