@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShopScript : MonoBehaviour
 {
+    public PlayerData data;
     public AudioSource purchaseAudio;
     public GameManager manager;
     private PlayerController PC;
@@ -22,7 +23,7 @@ public class ShopScript : MonoBehaviour
     public void OnPurchaseDashBuff()
     {
         
-        if ((manager.playerCoins >= 100) && (DashBuffLimit <= 2))
+        if ((data.playerCoins >= 100) && (DashBuffLimit <= 2))
         {
             DashBuffLimit += 1;
             PC.cooldowndashTime -= 0.5f;
@@ -35,7 +36,7 @@ public class ShopScript : MonoBehaviour
 
     public void OnPurchaseSpecialBuff()
     {
-        if ((manager.playerCoins >= 100) && (SpecialBuffLimit <= 3))
+        if ((data.playerCoins >= 100) && (SpecialBuffLimit <= 3))
         {
             SpecialBuffLimit += 1;
             PC.cooldownTimeSpecial -= 0.5f;
@@ -48,7 +49,7 @@ public class ShopScript : MonoBehaviour
 
     public void OnPurchaseUltimateBuff()
     {
-        if ((manager.playerCoins >= 100) && (SpecialBuffLimit <= 3))
+        if ((data.playerCoins >= 100) && (SpecialBuffLimit <= 3))
         {
             UltimateBuffLimit += 1;
             PC.cooldownTimeUltimate -= 0.5f;

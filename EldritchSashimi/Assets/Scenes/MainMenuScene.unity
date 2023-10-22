@@ -1858,6 +1858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainPanel: {fileID: 1355445431}
   OptionsPanel: {fileID: 1211431656}
+  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
 --- !u!4 &1922429033
 Transform:
   m_ObjectHideFlags: 0

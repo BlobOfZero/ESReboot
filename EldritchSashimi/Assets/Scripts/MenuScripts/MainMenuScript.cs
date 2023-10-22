@@ -8,6 +8,7 @@ public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject OptionsPanel;
+    public PlayerData data;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class MainMenuScript : MonoBehaviour
    public void PlayGame()
     {
         SceneManager.LoadScene("Shallows");
+        data.playerCoins = 0;
     }
 
    public void Options()
