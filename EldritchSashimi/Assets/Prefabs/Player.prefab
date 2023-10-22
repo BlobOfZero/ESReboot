@@ -288,7 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   controller: {fileID: 1592081672574722681}
-  health: 10
+  maxHealth: 0
+  currentHealth: 0
   dashSpeed: 100
   dashTime: 0.25
   cooldowndashTime: 3
@@ -957,7 +958,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9183624284385817891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1025,7 +1026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e15e42f485ebe4ea54e7374f4be4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Particles: {fileID: 0}
+  Particles: {fileID: 1867179584545190596, guid: 1bee537d455791e4dae96436e34f2336,
+    type: 3}
   knifeDamage: 3
 --- !u!1001 &413798222790069316
 PrefabInstance:
