@@ -16,17 +16,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        coinText.text = "Coins: " + data.playerCoins.ToString();
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
 
     public void IncreaseCoins(int value)
     {
         data.playerCoins += value;
-        coinText.text = "Coins: " + data.playerCoins.ToString();
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
     public void DecreaseCoins(int value)
     {
         data.playerCoins -= value;
-        coinText.text = "Coins: " + data.playerCoins.ToString();
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
 }
