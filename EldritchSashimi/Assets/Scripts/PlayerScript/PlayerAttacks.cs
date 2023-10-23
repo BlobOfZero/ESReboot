@@ -9,6 +9,7 @@ public class PlayerAttacks : MonoBehaviour
     public float countdownDuration = 5f;
     public float pauseDuration = 2f;
 
+    [SerializeField] private ParticleSystem KnifeSlash;
     private float currentTime;
     private bool isCountingDown = true;
     [SerializeField] private GameObject knifeRange;
@@ -82,7 +83,7 @@ public class PlayerAttacks : MonoBehaviour
                 // Trigger an event or perform an action when the countdown finishes
 
                 knifeRange.gameObject.SetActive(true);
-
+                KnifeSlash.Play();
                 // Start the pause timer
                 Invoke("StartCountdown", pauseDuration);
             }
