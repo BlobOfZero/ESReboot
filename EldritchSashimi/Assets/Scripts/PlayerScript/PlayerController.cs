@@ -25,8 +25,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private float dashTime;
     public float cooldowndashTime;
     [SerializeField] private float nextdashTime;
+    [SerializeField] private ParticleSystem RegularDash;
     //**********************************************************
-    
+
     [Header("Special/Ultimate cooldowns")]
     //**********************************************************
     public float cooldownTimeSpecial;
@@ -40,12 +41,14 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private float dashAttackSpeed;
     [SerializeField] private float dashAttackTime;
     [SerializeField] private GameObject dashAttack;
+    [SerializeField] private ParticleSystem Special1;
     //**********************************************************
 
     [Header("ultimate 1 variables")]
     //**********************************************************
     [SerializeField] private GameObject ultimateAttack;
     [SerializeField] private float ultimateknifetime;
+    [SerializeField] private ParticleSystem Ultimate1;
     //**********************************************************
 
     [Header("Id's for special/ultimate moves")]
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         {
             StartCoroutine(Dash());
             nextdashTime = Time.time + cooldowndashTime;
+            RegularDash.Play();
         }
     }
 
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     Debug.Log("special move1");
                     StartCoroutine(DashAttack());
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    Special1.Play();
                 }
                 break;
 
@@ -150,10 +155,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move1");
-
                     StartCoroutine(KnifeUltimate());
-
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    Ultimate1.Play();
                 }
                 break;
 
