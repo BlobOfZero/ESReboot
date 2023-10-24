@@ -13,6 +13,23 @@ public class ShopScript : MonoBehaviour
     private float SpecialBuffLimit;
     private float UltimateBuffLimit;
 
+    //trident stuff
+    //****************************************
+    private float TridentBuff;
+    private float tridentPurchases;
+    //****************************************
+
+    //Chopstick stuff
+    //****************************************
+    private float ChopstickBuff;
+    private float chopstickPurchases;
+    //****************************************
+
+    //Katana stuff
+    //****************************************
+    private float KatanaBuff;
+    private float katanaPurchases;
+    //****************************************
 
     private void Start()  
     {
@@ -61,22 +78,85 @@ public class ShopScript : MonoBehaviour
 
     public void TridentPurchase()
     {
-        PA.WeaponID = 4;
-        purchaseAudio.Play();
-        manager.DecreaseCoins(100);
+        if ((data.playerCoins >= 100) && TridentBuff <= 4)
+        {
+            purchaseAudio.Play();
+            manager.DecreaseCoins(100);
+            TridentBuff += 1;
+            tridentPurchases += 1;
+
+            switch (tridentPurchases) 
+            {
+                case 1:
+                    Debug.Log("bruh");
+                    PA.WeaponID = 4;
+                break;
+
+                case 2:
+                    Debug.Log("lul");
+                break;
+
+                case 3:
+                    Debug.Log("ha");
+                break;
+            }
+        }
+           
     }
 
     public void ChopstickPurchase()
     {
-        PA.WeaponID = 2;
-        purchaseAudio.Play();
-        manager.DecreaseCoins(100);
+        if ((data.playerCoins >= 100) && ChopstickBuff  <= 4)
+        {
+            
+            purchaseAudio.Play();
+            manager.DecreaseCoins(100);
+            ChopstickBuff += 1;
+           chopstickPurchases += 1;
+            switch (chopstickPurchases)
+            {
+                case 1:
+                    Debug.Log("bruh");
+                    PA.WeaponID = 2;
+                    break;
+
+                case 2:
+                    Debug.Log("lul");
+                    break;
+
+                case 3:
+                    Debug.Log("ha");
+                    break;
+            }
+        }
+           
     }
 
     public void KatanaPurchase()
     {
-        PA.WeaponID = 3;
-        purchaseAudio.Play();
-        manager.DecreaseCoins(100);
+        if ((data.playerCoins >= 100) && KatanaBuff <= 4)
+        {
+            
+            purchaseAudio.Play();
+            manager.DecreaseCoins(100);
+            KatanaBuff += 1;
+            katanaPurchases += 1;
+
+            switch (katanaPurchases)
+            {
+                case 1:
+                    Debug.Log("bruh");
+                    PA.WeaponID = 3;
+                    break;
+
+                case 2:
+                    Debug.Log("lul");
+                    break;
+
+                case 3:
+                    Debug.Log("ha");
+                    break;
+            }
+        }
     }
 }
