@@ -20,7 +20,11 @@ public class EnemyScript : MonoBehaviour, IDamageable
 
     [SerializeField] private float AttackRange;
 
-    [SerializeField] private float health = 3;
+    [SerializeField] private float health = 10;
+
+    [SerializeField] private float Maxhealth = 10;
+
+    [SerializeField] FloatingHealthbar healthBar;
 
     // Coin prefab for drop
     public GameObject coinPrefab;
@@ -28,6 +32,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     void awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        healthBar = GetComponentInChildren<FloatingHealthbar>();
     }
 
 
@@ -70,6 +75,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     {
         Debug.Log("Enemy damaged for" + damageAmount);
         health -= damageAmount;
+        healthBar.UpdateHealthbar(health , Maxhealth);
     }
 
     void death()
