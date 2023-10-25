@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnifeAttack : MonoBehaviour
 {
+    
     public float knifeDamage;
     public void OnTriggerEnter(Collider other)
     {

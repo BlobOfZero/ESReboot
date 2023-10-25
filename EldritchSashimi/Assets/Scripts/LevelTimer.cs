@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LevelTimer : MonoBehaviour
 {
@@ -9,16 +10,21 @@ public class LevelTimer : MonoBehaviour
     //**********************************
     public GameObject shopUI;
     [SerializeField] private TextMeshProUGUI coinText;
-    public float timeRemaining = 10;
+    public float timeRemaining;
+    public float maxTime = 10;
     public bool timerIsRunning = false;
+    public GameManager manager;
+
+    public TextMeshProUGUI timerText;
     //**********************************
 
     private void Start()
     {
         // Starts the timer automatically
         timerIsRunning = true;
+        maxTime = timeRemaining;
         shopUI.SetActive(false);
-        
+        timerText.text = timeRemaining.ToString("0.0");
     }
     void Update()
     {
@@ -36,11 +42,23 @@ public class LevelTimer : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+        timerText.text = timeRemaining.ToString("0.0");
     }
 
-    public void LeaveeShop()
+    public void NextLevel()
+    {
+        shopUI.SetActive(false);
+        SceneManager.LoadScene(2);
+    }
+
+    public void leavShop()
     {
         shopUI.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }

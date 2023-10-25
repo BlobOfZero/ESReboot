@@ -14,21 +14,24 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     [Header("health")]
     //**********************************************************
-    [SerializeField] private float health;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float currentHealth;
+    bool isDead;
     //**********************************************************
 
     [Header("Regular Dash")]
     //**********************************************************
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
-    [SerializeField] private float cooldowndashTime;
+    public float cooldowndashTime;
     [SerializeField] private float nextdashTime;
+    [SerializeField] private ParticleSystem RegularDash;
     //**********************************************************
 
     [Header("Special/Ultimate cooldowns")]
     //**********************************************************
-    [SerializeField] private float cooldownTimeSpecial;
-    [SerializeField] private float cooldownTimeUltimate;
+    public float cooldownTimeSpecial;
+    public float cooldownTimeUltimate;
     [SerializeField] private float nextFireTimeSpecial;
     [SerializeField] private float nextFireTimeUltimate;
     //**********************************************************
@@ -38,12 +41,14 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private float dashAttackSpeed;
     [SerializeField] private float dashAttackTime;
     [SerializeField] private GameObject dashAttack;
+    [SerializeField] private ParticleSystem Special1;
     //**********************************************************
 
     [Header("ultimate 1 variables")]
     //**********************************************************
     [SerializeField] private GameObject ultimateAttack;
     [SerializeField] private float ultimateknifetime;
+    [SerializeField] private ParticleSystem Ultimate1;
     //**********************************************************
 
     [Header("Id's for special/ultimate moves")]
@@ -65,11 +70,14 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        health = 3;
+        maxHealth = 3;
+        currentHealth = maxHealth;
+        isDead = false;
         knifeattack = GetComponent<KnifeAttack>();
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
+        Time.timeScale = 1;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -83,6 +91,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         {
             StartCoroutine(Dash());
             nextdashTime = Time.time + cooldowndashTime;
+            RegularDash.Play();
         }
     }
 
@@ -98,6 +107,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     Debug.Log("special move1");
                     StartCoroutine(DashAttack());
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    Special1.Play();
                 }
                 break;
 
@@ -145,10 +155,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move1");
-
                     StartCoroutine(KnifeUltimate());
-
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    Ultimate1.Play();
                 }
                 break;
 
@@ -183,6 +192,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     private void Update()
     {
         MovePlayer();
+
+        if(currentHealth <= 0)
+        {
+            isDead = true;
+            Debug.Log("player dead");
+        }
     }
 
     public void MovePlayer()
@@ -195,12 +210,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }
 
         controller.Move(movement * speed * Time.deltaTime);
-    }
-
-    public void QuitButton()
-    {
-        Application.Quit();
-        Debug.Log("Game quit");
     }
 
     IEnumerator Dash()
@@ -240,7 +249,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         //************************************************
         public void DamagePlayer(float damageAmount)
     {
-        health -= damageAmount;
+        currentHealth -= damageAmount;
     }
    //************************************************
 }

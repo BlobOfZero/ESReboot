@@ -6,22 +6,27 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI coinText;
-    [SerializeField] private int playerCoins;
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager instance;
+    public PlayerData data;
+
+    private void Awake()
     {
-        playerCoins = 0;
-        coinText.text = "Coins: " + playerCoins;
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        coinText.text = "Coins: " + playerCoins;
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
 
-    public void IncreaseCoins(int coins)
+    public void IncreaseCoins(int value)
     {
-        playerCoins += coins;
+        data.playerCoins += value;
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
+    }
+    public void DecreaseCoins(int value)
+    {
+        data.playerCoins -= value;
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
 }

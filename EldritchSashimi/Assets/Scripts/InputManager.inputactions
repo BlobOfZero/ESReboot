@@ -131,8 +131,30 @@
                 },
                 {
                     "name": "",
+                    "id": "df584b52-4109-4dab-945a-0018183a26a2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Special",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fe99cbb8-5d3d-44a3-9a6c-e1f6ad466863",
                     "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ultimate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f437523b-92e2-4293-bb62-0cdba9f76961",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -154,7 +176,7 @@
                 {
                     "name": "",
                     "id": "487a4422-bf13-496f-8b8c-28cf7cf705b8",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
