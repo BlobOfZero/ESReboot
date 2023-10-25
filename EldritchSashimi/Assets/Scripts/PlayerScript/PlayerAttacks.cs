@@ -6,9 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerAttacks : MonoBehaviour
 {
 
-    public float countdownDuration = 5f;
+    public float knifecountdownDuration = 5f;
+    public float katanacountdownDuration = 5f;
+    public float chopstickcountdownDuration = 5f;
+    public float tridentcountdownDuration = 5f;
     public float pauseDuration = 2f;
 
+    [SerializeField] private ParticleSystem KnifeSlash;
     private float currentTime;
     private bool isCountingDown = true;
     [SerializeField] private GameObject knifeRange;
@@ -20,7 +24,7 @@ public class PlayerAttacks : MonoBehaviour
     private void Start()
     {
         // Start the countdown
-        currentTime = countdownDuration;
+        currentTime = knifecountdownDuration;
         WeaponID = 1;
     }
 
@@ -54,16 +58,45 @@ public class PlayerAttacks : MonoBehaviour
         }
     }
 
-    private void StartCountdown()
+    private void StartCountdownKnife()
     {
         // Reset the timer for the next countdown
-        currentTime = countdownDuration;
+        currentTime = knifecountdownDuration;
         isCountingDown = true;
 
         // Perform any actions needed before starting the countdown again
         
     }
 
+    private void StartCountdownKatana()
+    {
+        // Reset the timer for the next countdown
+        currentTime = katanacountdownDuration;
+        isCountingDown = true;
+
+        // Perform any actions needed before starting the countdown again
+
+    }
+
+    private void StartCountdownChopstick()
+    {
+        // Reset the timer for the next countdown
+        currentTime = chopstickcountdownDuration;
+        isCountingDown = true;
+
+        // Perform any actions needed before starting the countdown again
+
+    }
+
+    private void StartCountdownTrident()
+    {
+        // Reset the timer for the next countdown
+        currentTime = tridentcountdownDuration;
+        isCountingDown = true;
+
+        // Perform any actions needed before starting the countdown again
+
+    }
 
     private void Knife()
     {
@@ -82,9 +115,9 @@ public class PlayerAttacks : MonoBehaviour
                 // Trigger an event or perform an action when the countdown finishes
 
                 knifeRange.gameObject.SetActive(true);
-
+                KnifeSlash.Play();
                 // Start the pause timer
-                Invoke("StartCountdown", pauseDuration);
+                Invoke("StartCountdownKnife", pauseDuration);
             }
         }
     }
@@ -108,7 +141,7 @@ public class PlayerAttacks : MonoBehaviour
                 ChopstickRange.gameObject.SetActive(true);
 
                 // Start the pause timer
-                Invoke("StartCountdown", pauseDuration);
+                Invoke("StartCountdownChopstick", pauseDuration);
             }
         }
     }
@@ -132,7 +165,7 @@ public class PlayerAttacks : MonoBehaviour
                 KatanaRange.gameObject.SetActive(true);
 
                 // Start the pause timer
-                Invoke("StartCountdown", pauseDuration);
+                Invoke("katanacountdownDuration", pauseDuration);
             }
         }
     }
@@ -156,7 +189,7 @@ public class PlayerAttacks : MonoBehaviour
                 TridentRange.gameObject.SetActive(true);
 
                 // Start the pause timer
-                Invoke("StartCountdown", pauseDuration);
+                Invoke("StartCountdownTrident", pauseDuration);
             }
         }
     }

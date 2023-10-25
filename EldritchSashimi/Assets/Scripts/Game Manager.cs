@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI coinText;
     public static GameManager instance;
-    public int playerCoins;
+    public PlayerData data;
 
     private void Awake()
     {
@@ -16,17 +16,17 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        coinText.text = "Coins: " + playerCoins.ToString();
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
 
     public void IncreaseCoins(int value)
     {
-        playerCoins += value;
-        coinText.text = "Coins: " + playerCoins.ToString();
+        data.playerCoins += value;
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
     public void DecreaseCoins(int value)
     {
-        playerCoins -= value;
-        coinText.text = "Coins: " + playerCoins.ToString();
+        data.playerCoins -= value;
+        coinText.text = "Tentacles: " + data.playerCoins.ToString();
     }
 }

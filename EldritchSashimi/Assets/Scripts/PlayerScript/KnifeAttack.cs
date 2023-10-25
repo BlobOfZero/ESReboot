@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KnifeAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject Particles;
+    
     public float knifeDamage;
     public void OnTriggerEnter(Collider other)
     {

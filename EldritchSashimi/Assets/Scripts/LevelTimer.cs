@@ -45,10 +45,16 @@ public class LevelTimer : MonoBehaviour
         timerText.text = timeRemaining.ToString("0.0");
     }
 
-    public void LeaveeShop()
+    public void NextLevel()
     {
         shopUI.SetActive(false);
         SceneManager.LoadScene(2);
+    }
+
+    public void leavShop()
+    {
+        shopUI.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void ReturnToMain()
