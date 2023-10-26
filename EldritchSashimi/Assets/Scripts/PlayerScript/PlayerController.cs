@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     [Header("health")]
     //**********************************************************
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     bool isDead;
+    [SerializeField] PlayerHealthBar healthBar;
+    [SerializeField] LevelTimer timer;
     //**********************************************************
 
     [Header("Regular Dash")]
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
         Time.timeScale = 1;
+        isDead = false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -192,12 +195,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     private void Update()
     {
         MovePlayer();
-
-        if(currentHealth <= 0)
-        {
-            isDead = true;
-            Debug.Log("player dead");
-        }
     }
 
     public void MovePlayer()
@@ -250,6 +247,15 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         public void DamagePlayer(float damageAmount)
     {
         currentHealth -= damageAmount;
+        healthBar.UpdateHealthUI();
+
+        if (currentHealth <= 0) 
+        {
+        isDead = true;
+        Destroy(gameObject);
+        Time.timeScale = 0;
+            timer.GameOver();
+        }
     }
    //************************************************
 }
