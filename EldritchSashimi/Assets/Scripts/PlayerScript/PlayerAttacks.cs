@@ -19,6 +19,11 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField] private GameObject ChopstickRange;
     [SerializeField] private GameObject KatanaRange;
     [SerializeField] private GameObject TridentRange;
+    public GameObject knife;
+    public GameObject chopsticks;
+    public GameObject katana;
+    public GameObject trident;
+
     public int WeaponID;
 
     private void Start()
@@ -33,27 +38,35 @@ public class PlayerAttacks : MonoBehaviour
         switch (WeaponID)
         {
             case 1:
-
-                Knife();
-
-             break;
-
-           case 2:
-
-                Chopstick();
-
+             Knife();
+             knife.gameObject.SetActive(true);
+             katana.gameObject.SetActive(false);
+             chopsticks.gameObject.SetActive(false);
+             trident.gameObject.SetActive(false);
             break;
 
+           case 2:
+            Chopstick();
+            chopsticks.gameObject.SetActive(true);
+            knife.gameObject.SetActive(false);
+            trident.gameObject.SetActive(false);
+            katana.gameObject.SetActive(false);
+           break;
+
             case 3:
-
-                Katana();
-
+             Katana();
+             katana.gameObject.SetActive(true);
+             trident.gameObject.SetActive(false);
+             knife.gameObject.SetActive(false);
+             chopsticks.gameObject.SetActive(false);
             break;
 
             case 4:
-
              Trident();
-
+             trident.gameObject.SetActive(true);
+             chopsticks.gameObject.SetActive(false);
+             knife.gameObject.SetActive(false);
+             katana.gameObject.SetActive(false);
             break;
         }
     }

@@ -362,6 +362,10 @@ MonoBehaviour:
   ChopstickRange: {fileID: 7487641860329366545}
   KatanaRange: {fileID: 2724788032646289519}
   TridentRange: {fileID: 753646422748542930}
+  knife: {fileID: 0}
+  chopsticks: {fileID: 4209725671143640609}
+  katana: {fileID: 0}
+  trident: {fileID: 1445441470322512271}
   WeaponID: 1
 --- !u!1 &1052508804476081989
 GameObject:
@@ -1238,6 +1242,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d237788985edb51409400964f4cd0eab, type: 3}
+--- !u!1 &1445441470322512271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d237788985edb51409400964f4cd0eab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1787459053832383710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2253187360793643829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d237788985edb51409400964f4cd0eab,
@@ -1440,6 +1450,12 @@ PrefabInstance:
 --- !u!4 &3539868464412644507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f488a906a398f2a40be01a2a32ebd390,
+    type: 3}
+  m_PrefabInstance: {fileID: 3939131113004413808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4209725671143640609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f488a906a398f2a40be01a2a32ebd390,
     type: 3}
   m_PrefabInstance: {fileID: 3939131113004413808}
   m_PrefabAsset: {fileID: 0}
