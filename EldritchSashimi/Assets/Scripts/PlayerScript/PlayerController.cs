@@ -247,7 +247,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         public void DamagePlayer(float damageAmount)
     {
         currentHealth -= damageAmount;
-        healthBar.UpdateHealthUI();
 
         if (currentHealth <= 0) 
         {
