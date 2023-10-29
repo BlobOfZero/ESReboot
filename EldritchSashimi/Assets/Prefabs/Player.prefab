@@ -294,7 +294,7 @@ MonoBehaviour:
   controller: {fileID: 1592081672574722681}
   maxHealth: 0
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthText: {fileID: 0}
   timer: {fileID: 0}
   dashSpeed: 100
   dashTime: 0.25
