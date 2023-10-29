@@ -5899,6 +5899,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 255.09424, y: 981.03516, z: 220.44922}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &924498084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6107321504810939657, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8430568075735361488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &941268220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8679,6 +8691,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 924498084}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
       propertyPath: currentHealth
       value: 10
       objectReference: {fileID: 0}
@@ -8781,7 +8798,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerHealthSlider
       value: 
-      objectReference: {fileID: 2031659617}
+      objectReference: {fileID: 0}
     - target: {fileID: 8996974970167124848, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: enemyPrefabs
@@ -11922,18 +11939,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 255.09424, y: 981.03516, z: 220.44922}
   m_Center: {x: 0.00024414062, y: 0, z: 0}
---- !u!114 &2031659617 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3033010911490259079, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8430568075735361488}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2035736435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13638,16 +13643,6 @@ PrefabInstance:
     - target: {fileID: 2345492779110559449, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5964513940228462392, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5964513940228462392, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

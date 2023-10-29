@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using  System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour, IDamageablePlayer
 {
@@ -17,8 +19,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     public float maxHealth;
     public float currentHealth;
     bool isDead;
-    [SerializeField] PlayerHealthBar healthBar;
+    [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] LevelTimer timer;
+    
     //**********************************************************
 
     [Header("Regular Dash")]
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
         Time.timeScale = 1;
         isDead = false;
+        healthText.text = "Current health: " + currentHealth;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -247,6 +251,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         public void DamagePlayer(float damageAmount)
     {
         currentHealth -= damageAmount;
+        healthText.text = "Current health: " + currentHealth;
 
         if (currentHealth <= 0) 
         {

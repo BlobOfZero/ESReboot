@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    public Slider healthSlider;
+    [SerializeField] PlayerController controller;
+    [SerializeField] TextMeshProUGUI healthText;
 
-    public void SetMaxHealth(float health)
+   private void Start()
     {
-        healthSlider.value = health;
+        controller = GetComponent<PlayerController>();
+
+    }
+
+    private void Update()
+    {
+        
     }
 }
