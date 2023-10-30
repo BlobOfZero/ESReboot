@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalBoss.unity
     guid: 055ebfb618ca2be409ad1f35a822e75c
+  - enabled: 0
+    path: Assets/Scenes/ShallowsK.unity
+    guid: 2b0cf3752d32e7048996ef8c15c3bfca
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: 969ed904f6b69224d9afca00e513a04f, type: 2}
