@@ -90,6 +90,7 @@ public class ShopScript : MonoBehaviour
                 case 1:
                     Debug.Log("bruh");
                     PA.WeaponID = 4;
+                    PA.isSwitching = true;
                 break;
 
                 case 2:
@@ -118,6 +119,7 @@ public class ShopScript : MonoBehaviour
                 case 1:
                     Debug.Log("bruh");
                     PA.WeaponID = 2;
+                    PA.isSwitching = true;
                     break;
 
                 case 2:
@@ -147,6 +149,7 @@ public class ShopScript : MonoBehaviour
                 case 1:
                     Debug.Log("bruh");
                     PA.WeaponID = 3;
+                    PA.isSwitching = true;
                     break;
 
                 case 2:

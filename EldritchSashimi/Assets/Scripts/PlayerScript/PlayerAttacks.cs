@@ -23,6 +23,7 @@ public class PlayerAttacks : MonoBehaviour
     public GameObject chopsticks;
     public GameObject katana;
     public GameObject trident;
+    public bool isSwitching;
 
     public int WeaponID;
 
@@ -31,6 +32,7 @@ public class PlayerAttacks : MonoBehaviour
         // Start the countdown
         currentTime = knifecountdownDuration;
         WeaponID = 1;
+        isSwitching = false;
     }
 
     private void Update()
@@ -39,34 +41,58 @@ public class PlayerAttacks : MonoBehaviour
         {
             case 1:
              Knife();
-             knife.gameObject.SetActive(true);
-             katana.gameObject.SetActive(false);
-             chopsticks.gameObject.SetActive(false);
-             trident.gameObject.SetActive(false);
+
+                if (isSwitching)
+                {
+                 knife.gameObject.SetActive(true);
+                 katana.gameObject.SetActive(false);
+                 chopsticks.gameObject.SetActive(false);
+                 trident.gameObject.SetActive(false);
+                 isSwitching = false;
+                }
+             
             break;
 
            case 2:
             Chopstick();
-            chopsticks.gameObject.SetActive(true);
-            knife.gameObject.SetActive(false);
-            trident.gameObject.SetActive(false);
-            katana.gameObject.SetActive(false);
+
+                if (isSwitching)
+                {
+                 chopsticks.gameObject.SetActive(true);
+                 knife.gameObject.SetActive(false);
+                 trident.gameObject.SetActive(false);
+                 katana.gameObject.SetActive(false);
+                 isSwitching = false;
+                }
+            
            break;
 
             case 3:
              Katana();
-             katana.gameObject.SetActive(true);
-             trident.gameObject.SetActive(false);
-             knife.gameObject.SetActive(false);
-             chopsticks.gameObject.SetActive(false);
+
+                if (isSwitching)
+                {
+                 katana.gameObject.SetActive(true);
+                 trident.gameObject.SetActive(false);
+                 knife.gameObject.SetActive(false);
+                 chopsticks.gameObject.SetActive(false);
+                 isSwitching = false;
+                }
+            
             break;
 
             case 4:
              Trident();
-             trident.gameObject.SetActive(true);
-             chopsticks.gameObject.SetActive(false);
-             knife.gameObject.SetActive(false);
-             katana.gameObject.SetActive(false);
+
+                if (isSwitching)
+                {
+                 trident.gameObject.SetActive(true);
+                 chopsticks.gameObject.SetActive(false);
+                 knife.gameObject.SetActive(false);
+                 katana.gameObject.SetActive(false);
+                 isSwitching = false;
+                }
+            
             break;
         }
     }
