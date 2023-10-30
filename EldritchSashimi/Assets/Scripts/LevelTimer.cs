@@ -55,6 +55,11 @@ public class LevelTimer : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void FinalLevel()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void leavShop()
     {
         shopUI.SetActive(false);
