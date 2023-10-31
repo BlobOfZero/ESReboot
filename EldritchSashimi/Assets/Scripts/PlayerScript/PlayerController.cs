@@ -21,8 +21,10 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     bool isDead;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] LevelTimer timer;
-    
     //**********************************************************
+
+    public Transform firepoint;
+    public float bulletspeed;
 
     [Header("Regular Dash")]
     //**********************************************************
@@ -70,6 +72,21 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private ParticleSystem ultimateChopstick;
     //**********************************************************
 
+    [Header("for special trident")]
+    //**********************************************************
+    [SerializeField] private float tridentSpecialTime;
+    [SerializeField] private GameObject tridentSpecial;
+    [SerializeField] private ParticleSystem tridentChopstick;
+    //**********************************************************
+
+    [Header("ultimate trident")]
+    //**********************************************************
+    [SerializeField] private GameObject ultimateAttackTrident;
+    [SerializeField] private float ultimateTridentTime;
+    [SerializeField] private ParticleSystem ultimateTrident;
+    private bool canFireUltimate;
+    //**********************************************************
+
     [Header("Id's for special/ultimate moves")]
     //**********************************************************
     public int WeaponIDs;
@@ -102,7 +119,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        maxHealth = 3;
+        maxHealth = 10;
         currentHealth = maxHealth;
         isDead = false;
         knifeattack = GetComponent<KnifeAttack>();
@@ -160,6 +177,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeSpecial)
                 {
                     Debug.Log("special move3");
+                   
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
                     //specialChopstick.Play();  <-- this is going to be something else obviously
@@ -170,7 +188,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
                 if (Time.time > nextFireTimeSpecial)
                 {
-                    Debug.Log("special move4");
+                    Debug.Log("special move3");
+                    StartCoroutine(TridentSpecialMove());
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
                     //specialChopstick.Play(); <-- this is going to be something else obviously
@@ -213,7 +232,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move3");
-                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;                    
                 }
                 break;
 
@@ -221,6 +240,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move4");
+                    StartCoroutine(TridentUltimateMove());
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
                 }
                 break;
@@ -256,6 +276,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }      
     }
 
+    //Chopstick abilities
+    //**********************************************
     IEnumerator DashAttack()
     {
         float startTime = Time.time;
@@ -273,13 +295,15 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         float startTime = Time.time;
         while (Time.time < startTime + ultimateknifetime)
         {
-            ultimateAttack.gameObject.SetActive(true);
-            
+            ultimateAttack.gameObject.SetActive(true);            
             yield return null;
         }
        ultimateAttack.gameObject.SetActive(false);
     }
+    //**********************************************
 
+    //Chopstick abilities
+    //**********************************************
     IEnumerator ChopstickSpecialMove()
     {
         float startTime = Time.time;
@@ -303,6 +327,30 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }
         ultimateAttackChopstick.gameObject.SetActive(false);
     }
+    //**********************************************
+
+    //Trident abilities
+    //**********************************************
+    IEnumerator TridentSpecialMove()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + tridentSpecialTime)
+        {
+            tridentSpecial.gameObject.SetActive(true);
+
+            yield return null;
+        }
+        tridentSpecial.gameObject.SetActive(false);
+    }
+
+    IEnumerator TridentUltimateMove()
+    {
+        Rigidbody rb = Instantiate(ultimateAttackTrident, firepoint.transform.position, firepoint.transform.rotation).GetComponent<Rigidbody>();
+        rb.AddForce(firepoint.forward * bulletspeed, ForceMode.Impulse);     
+        yield return null;              
+    }
+    //**********************************************
+
     //this is from the IdamageablePlayer Interface
     //************************************************
     public void DamagePlayer(float damageAmount)

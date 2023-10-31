@@ -4319,8 +4319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 5863521}
   coinText: {fileID: 1480429268}
-  timeRemaining: 60
-  maxTime: 60
+  timeRemaining: 5
+  maxTime: 5
   timerIsRunning: 0
   manager: {fileID: 670810010}
   timerText: {fileID: 870433493}
@@ -8943,6 +8943,11 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 924498084}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: bulletspeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: currentHealth
