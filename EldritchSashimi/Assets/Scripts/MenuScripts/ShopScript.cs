@@ -96,10 +96,12 @@ public class ShopScript : MonoBehaviour
 
                 case 2:
                     Debug.Log("lul");
+                    PA.tridentcountdownDuration -= 2;
                 break;
 
                 case 3:
                     Debug.Log("ha");
+                    PA.tridentcountdownDuration -= 1;
                 break;
             }
         }
@@ -126,10 +128,12 @@ public class ShopScript : MonoBehaviour
 
                 case 2:
                     Debug.Log("lul");
+                    PA.chopstickcountdownDuration -= 0.25f;
                     break;
 
                 case 3:
                     Debug.Log("ha");
+                    PA.chopstickcountdownDuration -= 0.25f;
                     break;
             }
         }
@@ -157,10 +161,12 @@ public class ShopScript : MonoBehaviour
 
                 case 2:
                     Debug.Log("lul");
+                    PA.katanacountdownDuration -= 1.5f;
                     break;
 
                 case 3:
                     Debug.Log("ha");
+                    PA.katanacountdownDuration -= 1;
                     break;
             }
         }

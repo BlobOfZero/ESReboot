@@ -7,9 +7,9 @@ public class PlayerAttacks : MonoBehaviour
 {
 
     public float knifecountdownDuration = 5f;
-    public float katanacountdownDuration = 5f;
-    public float chopstickcountdownDuration = 5f;
-    public float tridentcountdownDuration = 5f;
+    public float katanacountdownDuration;
+    public float chopstickcountdownDuration;
+    public float tridentcountdownDuration;
     public float pauseDuration = 2f;
 
     [SerializeField] private ParticleSystem KnifeSlash;
