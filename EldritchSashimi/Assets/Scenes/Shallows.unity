@@ -8948,6 +8948,11 @@ PrefabInstance:
       propertyPath: currentHealth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: ultimateChopstickTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4625334799833352044, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: m_RootOrder
@@ -13775,6 +13780,16 @@ PrefabInstance:
         type: 3}
       propertyPath: RunAwayDistance
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611608704258640194, guid: e2e7f6af0f66ba840816bcf51c626240,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611608704258640194, guid: e2e7f6af0f66ba840816bcf51c626240,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

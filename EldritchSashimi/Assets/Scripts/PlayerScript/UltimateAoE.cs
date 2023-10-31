@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UltimateAoE : MonoBehaviour
+public class AoEDamage : MonoBehaviour
 {
     [SerializeField] private float ultimateDamage;
     public void OnTriggerEnter(Collider other)

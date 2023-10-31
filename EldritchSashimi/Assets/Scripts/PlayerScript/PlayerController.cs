@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private float nextFireTimeUltimate;
     //**********************************************************
 
-    [Header("for special 1")]
+    [Header("for special knife")]
     //**********************************************************
     [SerializeField] private float dashAttackSpeed;
     [SerializeField] private float dashAttackTime;
@@ -49,11 +49,25 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private ParticleSystem Special1;
     //**********************************************************
 
-    [Header("ultimate 1 variables")]
+    [Header("ultimate knife")]
     //**********************************************************
     [SerializeField] private GameObject ultimateAttack;
     [SerializeField] private float ultimateknifetime;
     [SerializeField] private ParticleSystem Ultimate1;
+    //**********************************************************
+
+    [Header("for special chopsticks")]
+    //**********************************************************
+    [SerializeField] private float chopstickSpecialTime;
+    [SerializeField] private GameObject chopstickSpecial;
+    [SerializeField] private ParticleSystem specialChopstick;
+    //**********************************************************
+
+    [Header("ultimate chopsticks")]
+    //**********************************************************
+    [SerializeField] private GameObject ultimateAttackChopstick;
+    [SerializeField] private float ultimateChopstickTime;
+    [SerializeField] private ParticleSystem ultimateChopstick;
     //**********************************************************
 
     [Header("Id's for special/ultimate moves")]
@@ -71,6 +85,19 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     private KnifeAttack knifeattack;
     //**********************************************************
 
+    void OnEnable()
+    {
+        actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
+        actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
+        actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
+    }
+    void OnDisable()
+    {
+        actions.FindActionMap("Player").FindAction("Dash").performed -= OnDash;
+        actions.FindActionMap("Player").FindAction("Special").performed -= OnSpecial;
+        actions.FindActionMap("Player").FindAction("Ultimate").performed -= OnUltimate;
+    }
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -79,9 +106,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         currentHealth = maxHealth;
         isDead = false;
         knifeattack = GetComponent<KnifeAttack>();
-        actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
-        actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
-        actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
+        
         Time.timeScale = 1;
         isDead = false;
         healthText.text = "Current health: " + currentHealth;
@@ -123,8 +148,10 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeSpecial)
                 {
                     Debug.Log("special move2");
-
+                    StartCoroutine(ChopstickSpecialMove());
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    //the particle is going to get commented out as there is no particles for it at the current momment 
+                    //specialChopstick.Play();
                 }
                 break;
 
@@ -133,8 +160,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeSpecial)
                 {
                     Debug.Log("special move3");
-
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    //the particle is going to get commented out as there is no particles for it at the current momment 
+                    //specialChopstick.Play();  <-- this is going to be something else obviously
                 }
                 break;
 
@@ -143,8 +171,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeSpecial)
                 {
                     Debug.Log("special move4");
-
                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    //the particle is going to get commented out as there is no particles for it at the current momment 
+                    //specialChopstick.Play(); <-- this is going to be something else obviously
                 }
                 break;
         }
@@ -172,7 +201,11 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move2");
+                    StartCoroutine(ChopstickUltimateMove());
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    //this is commented because we don't have the particles for it
+                    //ultimateChopstick.Play();
+
                 }
                 break;
 
@@ -246,20 +279,44 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }
        ultimateAttack.gameObject.SetActive(false);
     }
-        //this is from the IdamageablePlayer Interface
-        //************************************************
-        public void DamagePlayer(float damageAmount)
-    {
-        currentHealth -= damageAmount;
-        healthText.text = "Current health: " + currentHealth;
 
-        if (currentHealth <= 0) 
+    IEnumerator ChopstickSpecialMove()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + chopstickSpecialTime)
         {
-        isDead = true;
-        Destroy(gameObject);
-        Time.timeScale = 0;
-            timer.GameOver();
+            chopstickSpecial.gameObject.SetActive(true);
+
+            yield return null;
         }
+        chopstickSpecial.gameObject.SetActive(false);
+    }
+
+    IEnumerator ChopstickUltimateMove()
+    {
+        float startTime = Time.time;
+        while (Time.time < startTime + ultimateChopstickTime)
+        {
+            ultimateAttackChopstick.gameObject.SetActive(true);
+
+            yield return null;
+        }
+        ultimateAttackChopstick.gameObject.SetActive(false);
+    }
+    //this is from the IdamageablePlayer Interface
+    //************************************************
+    public void DamagePlayer(float damageAmount)
+    {
+     currentHealth -= damageAmount;
+     healthText.text = "Current health: " + currentHealth;
+
+      if (currentHealth <= 0) 
+      {
+       isDead = true;
+       Destroy(gameObject);
+       Time.timeScale = 0;
+        timer.GameOver();
+      }
     }
    //************************************************
 }
