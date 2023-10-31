@@ -84,8 +84,25 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private GameObject ultimateAttackTrident;
     [SerializeField] private float ultimateTridentTime;
     [SerializeField] private ParticleSystem ultimateTrident;
-    private bool canFireUltimate;
+    private bool canFireTridentUltimate;
     //**********************************************************
+
+
+    [Header("for special katana")]
+    //**********************************************************
+    [SerializeField] private GameObject specialAttackKatana;
+    [SerializeField] private float specialKatanaTime;
+    [SerializeField] private ParticleSystem specialKatana;
+    private bool canFireKatanaSpecial; 
+    //**********************************************************
+
+    [Header("ultimate katana")]
+    //**********************************************************
+    [SerializeField] private float katanaUltimateTime;
+    [SerializeField] private GameObject ultimateAttackKatana;
+    [SerializeField] private ParticleSystem katana;
+    //**********************************************************
+
 
     [Header("Id's for special/ultimate moves")]
     //**********************************************************
@@ -177,8 +194,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeSpecial)
                 {
                     Debug.Log("special move3");
-                   
-                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    StartCoroutine(KatanaSpecialMove()); 
+                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
                     //specialChopstick.Play();  <-- this is going to be something else obviously
                 }
@@ -232,6 +249,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move3");
+                    StartCoroutine(KatanaUltimateMove());
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;                    
                 }
                 break;
@@ -240,7 +258,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.time > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move4");
-                    StartCoroutine(TridentUltimateMove());
+                    StartCoroutine(TridentUltimateMove()); 
                     nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
                 }
                 break;
@@ -276,7 +294,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }      
     }
 
-    //Chopstick abilities
+    //Knife abilities
     //**********************************************
     IEnumerator DashAttack()
     {
@@ -348,6 +366,29 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         Rigidbody rb = Instantiate(ultimateAttackTrident, firepoint.transform.position, firepoint.transform.rotation).GetComponent<Rigidbody>();
         rb.AddForce(firepoint.forward * bulletspeed, ForceMode.Impulse);     
         yield return null;              
+    }
+    //**********************************************
+
+    //Katana abilities
+    //**********************************************
+    IEnumerator KatanaSpecialMove()
+    {
+        Rigidbody rb = Instantiate(specialAttackKatana, firepoint.transform.position, firepoint.transform.rotation).GetComponent<Rigidbody>();
+        rb.AddForce(firepoint.forward * bulletspeed, ForceMode.Impulse);
+        yield return null;
+    }
+
+    IEnumerator KatanaUltimateMove()
+    {
+
+        float startTime = Time.time;
+        while (Time.time < startTime + katanaUltimateTime)
+        {
+            ultimateAttackKatana.gameObject.SetActive(true);
+
+            yield return null;
+        }
+        ultimateAttackKatana.gameObject.SetActive(false);
     }
     //**********************************************
 

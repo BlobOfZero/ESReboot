@@ -204,7 +204,7 @@ public class PlayerAttacks : MonoBehaviour
                 KatanaRange.gameObject.SetActive(true);
 
                 // Start the pause timer
-                Invoke("katanacountdownDuration", pauseDuration);
+                Invoke("StartCountdownKatana", pauseDuration);
             }
         }
     }

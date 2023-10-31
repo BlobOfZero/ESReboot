@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3059285457300577273
+--- !u!1 &1732741329585458782
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3765953013325451821}
-  - component: {fileID: 474723469377085817}
-  - component: {fileID: 6529745603571350264}
-  - component: {fileID: 7943363622738877389}
-  - component: {fileID: 1614634636609895351}
-  - component: {fileID: 6655790615288721481}
-  m_Layer: 10
-  m_Name: TridentBullet
+  - component: {fileID: 2602174901143120333}
+  - component: {fileID: 3947988686711688246}
+  - component: {fileID: 127942702382204613}
+  - component: {fileID: 778591102932100716}
+  - component: {fileID: -8300520794311675209}
+  - component: {fileID: -3800265393766686260}
+  m_Layer: 11
+  m_Name: KatanaBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3765953013325451821
+--- !u!4 &2602174901143120333
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059285457300577273}
+  m_GameObject: {fileID: 1732741329585458782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6253352, y: 0.41069672, z: -0.012668}
-  m_LocalScale: {x: 1.40408, y: 1.40408, z: 1.40408}
+  m_LocalPosition: {x: 0.041, y: 0.404, z: 1.007}
+  m_LocalScale: {x: 1.0631601, y: 0.4, z: 1.05516}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &474723469377085817
+--- !u!33 &3947988686711688246
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059285457300577273}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6529745603571350264
+  m_GameObject: {fileID: 1732741329585458782}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &127942702382204613
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059285457300577273}
+  m_GameObject: {fileID: 1732741329585458782}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7943363622738877389
-SphereCollider:
+--- !u!65 &778591102932100716
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059285457300577273}
+  m_GameObject: {fileID: 1732741329585458782}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -105,29 +105,15 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1614634636609895351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059285457300577273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b1b036020dffd4796774457926530e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tridentExplosion: {fileID: 1919817011663768254, guid: 69774d5215f725742af0076000e59185,
-    type: 3}
---- !u!54 &6655790615288721481
+--- !u!54 &-8300520794311675209
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059285457300577273}
+  m_GameObject: {fileID: 1732741329585458782}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -148,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3800265393766686260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732741329585458782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5d9b524333375438d5eb9ed70d6ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 4
+  katanaDamage: 3
