@@ -3961,7 +3961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &308022930
 Transform:
   m_ObjectHideFlags: 0
@@ -20261,35 +20261,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1307610225152255938, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+    - target: {fileID: 464762490792943055, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1103406250}
     - target: {fileID: 1307610225152255938, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Reload
-      objectReference: {fileID: 0}
-    - target: {fileID: 1832353770442493536, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1103406250}
     - target: {fileID: 1832353770442493536, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReturnToMain
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1103406250}
     - target: {fileID: 2114046331178403616, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
       propertyPath: m_Name
       value: GameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 2114046331178403616, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2345492779110559449, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
@@ -20395,11 +20385,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6107321504810939657, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
-        type: 3}
-      propertyPath: m_margin.z
-      value: -112.25241
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
