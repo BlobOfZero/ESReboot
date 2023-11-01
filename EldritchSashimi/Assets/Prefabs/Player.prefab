@@ -334,6 +334,7 @@ MonoBehaviour:
   currentHealth: 0
   healthText: {fileID: 0}
   timer: {fileID: 0}
+  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   firepoint: {fileID: 2137914572205626422}
   bulletspeed: 5
   dashSpeed: 100
@@ -427,6 +428,7 @@ MonoBehaviour:
   katana: {fileID: 257491088179484303}
   trident: {fileID: 7992257610003974141}
   isSwitching: 0
+  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   WeaponID: 1
 --- !u!1 &1052508804476081989
 GameObject:

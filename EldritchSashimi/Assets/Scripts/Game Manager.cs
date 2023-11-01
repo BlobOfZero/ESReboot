@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         coinText.text = "Tentacles: " + data.playerCoins.ToString();
+        data.playerAttackWeaponID = data.playerAttackWeaponID;
+        data.playerWeaponID = data.playerWeaponID;
     }
 
     public void IncreaseCoins(int value)

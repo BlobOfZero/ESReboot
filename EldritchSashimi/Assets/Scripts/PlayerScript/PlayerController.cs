@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] LevelTimer timer;
     //**********************************************************
 
+    [Header("player data refrence")]
+    public PlayerData data;
+    //**********************************************************
+
     public Transform firepoint;
     public float bulletspeed;
 
@@ -132,15 +136,19 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Ultimate").performed -= OnUltimate;
     }
 
+    void Awake() 
+    {
+        WeaponIDs = data.playerAttackWeaponID;
+    }
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         maxHealth = 10;
-        currentHealth = maxHealth;
+        currentHealth = maxHealth;      
         isDead = false;
-        knifeattack = GetComponent<KnifeAttack>();
-        
+        knifeattack = GetComponent<KnifeAttack>();        
         Time.timeScale = 1;
         isDead = false;
         healthText.text = "Current health: " + currentHealth;
