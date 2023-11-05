@@ -6,10 +6,12 @@ public class KatanaBullet : MonoBehaviour
 {
     public float lifetime;
     public float katanaDamage;
+    [SerializeField] private ParticleSystem katanaSlash;
 
     void Start()
     {
         Destroy(gameObject, lifetime);
+        //katanaSlash.Play();
     }
 
     public void OnTriggerEnter(Collider other)

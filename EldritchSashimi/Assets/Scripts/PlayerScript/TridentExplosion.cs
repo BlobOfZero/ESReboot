@@ -6,10 +6,11 @@ public class TridentExplosion : MonoBehaviour
 {
     public float lifetime;
     public float tridentExplosionDamage;
-   
+    [SerializeField] private ParticleSystem tridentSplash;
     void Start()
     {
         Destroy(gameObject, lifetime);
+        //tridentSplash.Play();
     }
 
     public void OnTriggerStay(Collider other)
