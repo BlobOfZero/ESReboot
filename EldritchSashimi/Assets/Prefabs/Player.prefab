@@ -375,6 +375,8 @@ MonoBehaviour:
   katana: {fileID: 0}
   WeaponIDs: 1
   actions: {fileID: -944628639613478452, guid: 053cce96a2ed73149a0804f8119d6528, type: 3}
+  dashClip: {fileID: 8300000, guid: dbf2224f1ecad38418726d155820818b, type: 3}
+  slashClip: {fileID: 8300000, guid: 3f1f62257c309c843a6845f40ce3edc3, type: 3}
 --- !u!143 &1592081672574722681
 CharacterController:
   m_ObjectHideFlags: 0
@@ -427,7 +429,6 @@ MonoBehaviour:
   chopsticks: {fileID: 1090179968188058133}
   katana: {fileID: 257491088179484303}
   trident: {fileID: 7992257610003974141}
-  isSwitching: 0
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   WeaponID: 1
 --- !u!1 &1052508804476081989

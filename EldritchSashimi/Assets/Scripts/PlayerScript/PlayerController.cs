@@ -118,6 +118,11 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     public InputActionAsset actions;
     //**********************************************************
 
+    [Header("Player Sounds")]
+    AudioSource source;
+    [SerializeField] private AudioClip dashClip;
+    [SerializeField] private AudioClip slashClip;
+
     //refrences
     //**********************************************************
     private KnifeAttack knifeattack;
@@ -128,6 +133,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
+        source = GetComponent<AudioSource>();
     }
     void OnDisable()
     {
@@ -166,6 +172,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
             StartCoroutine(Dash());
             nextdashTime = Time.time + cooldowndashTime;
             RegularDash.Play();
+            source.PlayOneShot(dashClip);
         }
     }
 
@@ -310,6 +317,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         while (Time.time < startTime + dashAttackTime) 
         {
             dashAttack.gameObject.SetActive(true);
+            source.PlayOneShot(slashClip);
             controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
             yield return null;
         }
