@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ShopScript : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ShopScript : MonoBehaviour
     private float DashBuffLimit;
     private float SpecialBuffLimit;
     private float UltimateBuffLimit;
+    AudioSource source;
+    public AudioClip clip;
 
     //trident stuff
     //****************************************
@@ -35,6 +38,7 @@ public class ShopScript : MonoBehaviour
     {
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         PA = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttacks>();
+        source = manager.GetComponent<AudioSource>();
     }
 
     public void OnPurchaseDashBuff()
@@ -46,6 +50,7 @@ public class ShopScript : MonoBehaviour
             PC.cooldowndashTime -= 0.5f;
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
+            source.PlayOneShot(clip);
         }
         else return;
     }
@@ -59,6 +64,7 @@ public class ShopScript : MonoBehaviour
             PC.cooldownTimeSpecial -= 0.5f;
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
+            source.PlayOneShot(clip);
         }
         else return;
     }
@@ -72,6 +78,7 @@ public class ShopScript : MonoBehaviour
             PC.cooldownTimeUltimate -= 0.5f;
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
+            source.PlayOneShot(clip);
         }
         else return;
     }
@@ -84,6 +91,7 @@ public class ShopScript : MonoBehaviour
             manager.DecreaseCoins(100);
             TridentBuff += 1;
             tridentPurchases += 1;
+            source.PlayOneShot(clip);
 
             switch (tridentPurchases) 
             {
@@ -116,6 +124,8 @@ public class ShopScript : MonoBehaviour
             manager.DecreaseCoins(100);
             ChopstickBuff += 1;
            chopstickPurchases += 1;
+            source.PlayOneShot(clip);
+
             switch (chopstickPurchases)
             {
                 case 1:
@@ -147,6 +157,7 @@ public class ShopScript : MonoBehaviour
             manager.DecreaseCoins(100);
             KatanaBuff += 1;
             katanaPurchases += 1;
+            source.PlayOneShot(clip);
 
             switch (katanaPurchases)
             {

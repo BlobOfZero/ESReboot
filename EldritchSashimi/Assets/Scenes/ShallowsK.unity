@@ -2762,8 +2762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 238136930}
   coinText: {fileID: 1549177777}
-  timeRemaining: 30
-  maxTime: 10
+  timeRemaining: 45
+  maxTime: 45
   timerIsRunning: 0
   manager: {fileID: 670810010}
   timerText: {fileID: 1698820628}
@@ -2797,6 +2797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 1549177777}
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
+  clip: {fileID: 8300000, guid: 7fa7bfd494e6a6d47b65a517ec039052, type: 3}
 --- !u!114 &670810011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2812,6 +2813,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   purchaseAudio: {fileID: 670810012}
   manager: {fileID: 670810010}
+  clip: {fileID: 8300000, guid: 7fa7bfd494e6a6d47b65a517ec039052, type: 3}
 --- !u!82 &670810012
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2822,11 +2824,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7fa7bfd494e6a6d47b65a517ec039052, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 18ee939b4ff177747853f1588c56d721, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
