@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject LevelSelectPanel;
     public PlayerData data;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,8 @@ public class MainMenuScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         MainPanel.SetActive(true);
         LevelSelectPanel.SetActive(false);
+        source = GetComponent<AudioSource>();
+        source.Play();
     }
 
    public void PlayGame()
