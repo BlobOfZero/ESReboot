@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   playerCoins: 0
-  playerAttackWeaponID: 0
-  playerWeaponID: 1
+  playerAttackWeaponID: 1
+  playerWeaponID: 4

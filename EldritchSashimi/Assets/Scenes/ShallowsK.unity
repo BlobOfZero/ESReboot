@@ -2693,7 +2693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 238136930}
   coinText: {fileID: 1549177777}
-  timeRemaining: 5
+  timeRemaining: 45
   maxTime: 45
   timerIsRunning: 0
   manager: {fileID: 670810010}
