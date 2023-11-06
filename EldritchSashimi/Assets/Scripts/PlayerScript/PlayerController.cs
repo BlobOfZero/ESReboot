@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     [Header("Id's for special/ultimate moves")]
     //**********************************************************
-    public int WeaponIDs;
+    public int WeaponIDs = 1;
     //**********************************************************
 
     [Header("Inputs")]
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
-        source = GetComponent<AudioSource>();
+        
     }
     void OnDisable()
     {
@@ -144,7 +144,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     void Awake() 
     {
+        WeaponIDs = 1;
         WeaponIDs = data.playerAttackWeaponID;
+        source = GetComponent<AudioSource>();
     }
 
     public void Start()

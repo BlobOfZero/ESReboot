@@ -28,11 +28,11 @@ public class PlayerAttacks : MonoBehaviour
     public PlayerData data;
     //**********************************************************
 
-    public int WeaponID;
+    public int WeaponID = 1;
 
     void Awake()
-    {
-        WeaponID = data.playerAttackWeaponID;
+    {    
+       WeaponID = data.playerAttackWeaponID;
     }
 
     private void Start()
