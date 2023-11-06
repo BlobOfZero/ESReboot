@@ -14351,6 +14351,8 @@ MonoBehaviour:
   coinText: {fileID: 723247406}
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   clip: {fileID: 0}
+  PWID: {fileID: 0}
+  PAWID: {fileID: 0}
 --- !u!114 &1103406250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17817,6 +17819,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b21e6226935b046a0f4e70c280d6d7, type: 3}
+--- !u!1 &1337422621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 257491088179484303, guid: 670cc34b8ee681846ab0661188328ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1409447164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1356970452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18681,7 +18689,7 @@ PrefabInstance:
         type: 3}
       propertyPath: katana
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1337422621}
     - target: {fileID: 8996974970167124848, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: enemyPrefabs

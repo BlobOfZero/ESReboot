@@ -319,8 +319,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         while (Time.time < startTime + dashAttackTime) 
         {
             dashAttack.gameObject.SetActive(true);
-            source.PlayOneShot(slashClip);
             controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
+            source.PlayOneShot(slashClip);
             yield return null;
         }
         dashAttack.gameObject.SetActive(false);
