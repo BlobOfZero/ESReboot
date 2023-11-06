@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCoins: 0
   playerAttackWeaponID: 1
-  playerWeaponID: 4
+  playerWeaponID: 1
