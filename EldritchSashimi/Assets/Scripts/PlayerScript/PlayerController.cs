@@ -315,12 +315,13 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************
     IEnumerator DashAttack()
     {
+        source.PlayOneShot(slashClip);
         float startTime = Time.time;
         while (Time.time < startTime + dashAttackTime) 
         {
             dashAttack.gameObject.SetActive(true);
             controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
-            source.PlayOneShot(slashClip);
+            
             yield return null;
         }
         dashAttack.gameObject.SetActive(false);
