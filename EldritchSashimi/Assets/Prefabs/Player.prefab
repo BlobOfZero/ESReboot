@@ -331,9 +331,8 @@ MonoBehaviour:
   currentHealth: 0
   healthText: {fileID: 0}
   timer: {fileID: 0}
-  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   firepoint: {fileID: 2137914572205626422}
-  bulletspeed: 5
+  bulletspeed: 20
   dashSpeed: 100
   dashTime: 0.25
   cooldowndashTime: 3
@@ -426,7 +425,6 @@ MonoBehaviour:
   chopsticks: {fileID: 1090179968188058133}
   katana: {fileID: 257491088179484303}
   trident: {fileID: 7992257610003974141}
-  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   WeaponID: 1
 --- !u!95 &5913764759419605348
 Animator:
