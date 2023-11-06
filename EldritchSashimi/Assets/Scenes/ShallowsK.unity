@@ -2693,7 +2693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 238136930}
   coinText: {fileID: 1549177777}
-  timeRemaining: 45
+  timeRemaining: 5
   maxTime: 45
   timerIsRunning: 0
   manager: {fileID: 670810010}
@@ -2729,6 +2729,8 @@ MonoBehaviour:
   coinText: {fileID: 1549177777}
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   clip: {fileID: 8300000, guid: 7fa7bfd494e6a6d47b65a517ec039052, type: 3}
+  PWID: {fileID: 1312799334}
+  PAWID: {fileID: 1312799332}
 --- !u!114 &670810011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5492,6 +5494,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1312799332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6398532845446292954, guid: 670cc34b8ee681846ab0661188328ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864680092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312799328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6eafea2f6c140f4cb732d3ea319f90d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1312799334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864680092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312799328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c6a14a1da291a4d824dd38cd71b63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1338168140
 PrefabInstance:
   m_ObjectHideFlags: 0

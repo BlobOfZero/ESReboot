@@ -99,6 +99,8 @@ public class ShopScript : MonoBehaviour
                     Debug.Log("bruh");
                     PA.WeaponID = 4;
                     PC.WeaponIDs = 4;
+                    data.playerAttackWeaponID = 4;
+                    data.playerWeaponID = 4;
                 break;
 
                 case 2:
@@ -132,6 +134,8 @@ public class ShopScript : MonoBehaviour
                     Debug.Log("bruh");
                     PA.WeaponID = 2;
                     PC.WeaponIDs = 2;
+                    data.playerAttackWeaponID = 2;
+                    data.playerWeaponID = 2;
                     break;
 
                 case 2:
@@ -165,6 +169,8 @@ public class ShopScript : MonoBehaviour
                     Debug.Log("bruh");
                     PA.WeaponID = 3;
                     PC.WeaponIDs = 3;
+                    data.playerAttackWeaponID = 3;
+                    data.playerWeaponID = 3;
                     break;
 
                 case 2:
