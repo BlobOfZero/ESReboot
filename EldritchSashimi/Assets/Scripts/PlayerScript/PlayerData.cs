@@ -8,7 +8,7 @@ public class PlayerData : ScriptableObject
 {
     public int playerCoins;
 
-    public int playerAttackWeaponID;
+    //public int playerAttackWeaponID;
 
-    public int playerWeaponID;
+   // public int playerWeaponID;
 }

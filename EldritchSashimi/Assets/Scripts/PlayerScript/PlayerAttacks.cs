@@ -25,14 +25,14 @@ public class PlayerAttacks : MonoBehaviour
     public GameObject trident;
 
     [Header("player data refrence")]
-    public PlayerData data;
+    //public PlayerData data;
     //**********************************************************
 
     public int WeaponID = 1;
 
     void Awake()
     {    
-       WeaponID = data.playerAttackWeaponID;
+       //WeaponID = data.playerAttackWeaponID;
     }
 
     private void Start()
@@ -43,7 +43,7 @@ public class PlayerAttacks : MonoBehaviour
 
     private void Update()
     {
-        data.playerAttackWeaponID = WeaponID;
+        //data.playerAttackWeaponID = WeaponID;
         switch (WeaponID)
         {
             case 1:

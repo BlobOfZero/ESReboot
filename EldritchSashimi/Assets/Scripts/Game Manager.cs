@@ -11,20 +11,22 @@ public class GameManager : MonoBehaviour
     public PlayerData data;
     AudioSource source;
     public AudioClip clip;
-   
+    public PlayerController PWID;
+    public PlayerAttacks PAWID;
 
     private void Awake()
     {
         instance = this;
         source = GetComponent<AudioSource>();
-        
+      PWID = GetComponent<PlayerController>();
+        PAWID = GetComponent<PlayerAttacks>();
     }
 
     private void Start()
     {
+
         coinText.text = "Tentacles: " + data.playerCoins.ToString();
-        data.playerAttackWeaponID = data.playerAttackWeaponID;
-        data.playerWeaponID = data.playerWeaponID;
+    
         source.Play();
     }
 

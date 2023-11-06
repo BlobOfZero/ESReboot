@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************************
 
     [Header("player data refrence")]
-    public PlayerData data;
+    //public PlayerData data;
     //**********************************************************
 
     public Transform firepoint;
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     void Awake() 
     {
         WeaponIDs = 1;
-        WeaponIDs = data.playerAttackWeaponID;
+        //WeaponIDs = data.playerAttackWeaponID;
         source = GetComponent<AudioSource>();
     }
 
