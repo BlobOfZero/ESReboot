@@ -68,7 +68,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
         {
             agent.SetDestination(player.position);
         }
-        transform.LookAt(player);
+        // transform.LookAt(player);
     }
 
     public void Damage(float damageAmount)

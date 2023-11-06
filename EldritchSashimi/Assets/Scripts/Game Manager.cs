@@ -11,15 +11,15 @@ public class GameManager : MonoBehaviour
     public PlayerData data;
     AudioSource source;
     public AudioClip clip;
-    public PlayerController PWID;
-    public PlayerAttacks PAWID;
+   // public PlayerController PWID; wip
+   // public PlayerAttacks PAWID; wip
 
     private void Awake()
     {
         instance = this;
         source = GetComponent<AudioSource>();
-      PWID = GetComponent<PlayerController>();
-        PAWID = GetComponent<PlayerAttacks>();
+        // PWID = GetComponent<PlayerController>();
+        // PAWID = GetComponent<PlayerAttacks>();
     }
 
     private void Start()
