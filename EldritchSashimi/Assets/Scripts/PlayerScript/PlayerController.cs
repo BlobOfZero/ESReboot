@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     public float cooldowndashTime;
     [SerializeField] private float nextdashTime;
     [SerializeField] private ParticleSystem RegularDash;
+    private bool iFrames;
     //**********************************************************
 
     [Header("Special/Ultimate cooldowns")]
@@ -160,6 +161,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         Time.timeScale = 1;
         isDead = false;
         healthText.text = "Current health: " + currentHealth;
+        iFrames = false;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -308,8 +310,10 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         while (Time.time < startTime + dashTime)
         {         
             controller.Move(transform.forward * dashSpeed * Time.deltaTime);
+            iFrames = true;
             yield return null;
-        }      
+        }
+        iFrames = false;
     }
 
     //Knife abilities
@@ -322,10 +326,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         {
             dashAttack.gameObject.SetActive(true);
             controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
+            iFrames = true;
             
             yield return null;
         }
         dashAttack.gameObject.SetActive(false);
+        iFrames = false;
     }
 
     IEnumerator KnifeUltimate()
@@ -416,16 +422,20 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //************************************************
     public void DamagePlayer(float damageAmount)
     {
-     currentHealth -= damageAmount;
-     healthText.text = "Current health: " + currentHealth;
+        if (!iFrames)
+        {
+            currentHealth -= damageAmount;
+            healthText.text = "Current health: " + currentHealth;
 
-      if (currentHealth <= 0) 
-      {
-       isDead = true;
-       Destroy(gameObject);
-       Time.timeScale = 0;
-        timer.GameOver();
-      }
+            if (currentHealth <= 0)
+            {
+                isDead = true;
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                timer.GameOver();
+            }
+        }
+    
     }
    //************************************************
 }
