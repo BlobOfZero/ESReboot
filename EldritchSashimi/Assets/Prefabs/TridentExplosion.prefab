@@ -118,5 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68117e7aa8e01bc419bb99f6f5176598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 10
+  lifetime: 3
   tridentExplosionDamage: 1
+  tridentSplash: {fileID: 0}

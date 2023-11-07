@@ -340,7 +340,7 @@ MonoBehaviour:
   cooldowndashTime: 3
   nextdashTime: 0
   RegularDash: {fileID: 4767391717157661993}
-  cooldownTimeSpecial: 3
+  cooldownTimeSpecial: 5
   cooldownTimeUltimate: 5
   nextFireTimeSpecial: 0
   nextFireTimeUltimate: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   ultimateAttackChopstick: {fileID: 7297788601333864637}
   ultimateChopstickTime: 10
   ultimateChopstick: {fileID: 0}
-  tridentSpecialTime: 3
+  tridentSpecialTime: 2
   tridentSpecial: {fileID: 3282576067212273501}
   tridentChopstick: {fileID: 0}
   ultimateAttackTrident: {fileID: 3059285457300577273, guid: 6149a48935988e844bf71ce00e078403,
@@ -413,10 +413,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6eafea2f6c140f4cb732d3ea319f90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knifecountdownDuration: 5
-  katanacountdownDuration: 5
-  chopstickcountdownDuration: 5
-  tridentcountdownDuration: 5
+  knifecountdownDuration: 1.5
+  katanacountdownDuration: 1.5
+  chopstickcountdownDuration: 1.5
+  tridentcountdownDuration: 1.5
   pauseDuration: 0.5
   KnifeSlash: {fileID: 4438117973895353365}
   knifeRange: {fileID: 9183624284385817891}

@@ -105,12 +105,12 @@ public class ShopScript : MonoBehaviour
 
                 case 2:
                     Debug.Log("lul");
-                    PA.tridentcountdownDuration -= 2;
+                    PA.tridentcountdownDuration -= 0.125f;
                 break;
 
                 case 3:
                     Debug.Log("ha");
-                    PA.tridentcountdownDuration -= 1;
+                    PA.tridentcountdownDuration -= 0.125f;
                 break;
             }
         }
@@ -175,12 +175,12 @@ public class ShopScript : MonoBehaviour
 
                 case 2:
                     Debug.Log("lul");
-                    PA.katanacountdownDuration -= 1.5f;
+                    PA.katanacountdownDuration -= 0.25f;
                     break;
 
                 case 3:
                     Debug.Log("ha");
-                    PA.katanacountdownDuration -= 1;
+                    PA.katanacountdownDuration -= 0.25f;
                     break;
             }
         }
