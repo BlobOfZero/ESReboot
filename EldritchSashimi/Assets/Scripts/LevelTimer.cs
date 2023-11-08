@@ -25,7 +25,7 @@ public class LevelTimer : MonoBehaviour
     {
         // Starts the timer automatically
         timerIsRunning = true;
-        maxTime = timeRemaining;
+        timeRemaining = maxTime;
         shopUI.SetActive(false);
         timerText.text = timeRemaining.ToString("0.0");
         GameOverUI.SetActive(false);
@@ -60,10 +60,12 @@ public class LevelTimer : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    public void leavShop()
-    {
+    public void leaveShop()
+    {    
         shopUI.SetActive(false);
         Time.timeScale = 1;
+        timerIsRunning = true;
+        timeRemaining = maxTime;
     }
 
     public void ReturnToMain()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.Audio;
 
 public class ShopScript : MonoBehaviour
@@ -15,6 +16,7 @@ public class ShopScript : MonoBehaviour
     private float ultimateBuffLimit;
     AudioSource source;
     public AudioClip clip;
+    public TextMeshProUGUI coinText;
 
     //trident stuff
     //****************************************
@@ -39,8 +41,13 @@ public class ShopScript : MonoBehaviour
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         PA = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttacks>();
         source = manager.GetComponent<AudioSource>();
+        
     }
 
+    private void Update()
+    {
+       coinText.text = "Tentacles: " + data.playerCoins.ToString();
+    }
     public void OnPurchaseDashBuff()
     {
         
@@ -51,6 +58,7 @@ public class ShopScript : MonoBehaviour
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
+            coinText.text = "Tentacles: " + data.playerCoins.ToString();
         }
         else return;
     }
@@ -65,6 +73,7 @@ public class ShopScript : MonoBehaviour
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
+            coinText.text = "Tentacles: " + data.playerCoins.ToString();
         }
         else return;
     }
@@ -79,6 +88,7 @@ public class ShopScript : MonoBehaviour
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
+            coinText.text = "Tentacles: " + data.playerCoins.ToString();
         }
         else return;
     }
@@ -102,16 +112,19 @@ public class ShopScript : MonoBehaviour
                     PA.isWeaponSwitching = true;
                     data.playerAttackWeaponID = 4;
                     data.playerWeaponID = 4;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                 break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.tridentcountdownDuration -= 0.125f;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                 break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.tridentcountdownDuration -= 0.125f;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                 break;
             }
         }
@@ -137,16 +150,19 @@ public class ShopScript : MonoBehaviour
                     PC.WeaponIDs = 2;
                     data.playerAttackWeaponID = 2;
                     data.playerWeaponID = 2;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.chopstickcountdownDuration -= 0.25f;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.chopstickcountdownDuration -= 0.25f;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
             }
         }
@@ -172,16 +188,19 @@ public class ShopScript : MonoBehaviour
                     PC.WeaponIDs = 3;
                     data.playerAttackWeaponID = 3;
                     data.playerWeaponID = 3;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.katanacountdownDuration -= 0.25f;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.katanacountdownDuration -= 0.25f;
+                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
             }
         }
