@@ -94,13 +94,13 @@ public class EnemyRanged : MonoBehaviour, IDamageable
             }
         }
         IsChasing = true;
-        //transform.LookAt(player);
+        transform.LookAt(player);
     }
 
 
     private void Attacking()
     {
-        // transform.LookAt(player);
+        transform.LookAt(player);
         if (IsAttacking != true)
         {
             //attack code here

@@ -10,9 +10,9 @@ public class ShopScript : MonoBehaviour
     public GameManager manager;
     private PlayerController PC;
     private PlayerAttacks PA;
-    private float DashBuffLimit;
-    private float SpecialBuffLimit;
-    private float UltimateBuffLimit;
+    private float dashBuffLimit;
+    private float specialBuffLimit;
+    private float ultimateBuffLimit;
     AudioSource source;
     public AudioClip clip;
 
@@ -44,9 +44,9 @@ public class ShopScript : MonoBehaviour
     public void OnPurchaseDashBuff()
     {
         
-        if ((data.playerCoins >= 100) && (DashBuffLimit <= 2))
+        if ((data.playerCoins >= 100) && (dashBuffLimit <= 2))
         {
-            DashBuffLimit += 1;
+            dashBuffLimit += 1;
             PC.cooldowndashTime -= 0.5f;
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
@@ -58,9 +58,9 @@ public class ShopScript : MonoBehaviour
 
     public void OnPurchaseSpecialBuff()
     {
-        if ((data.playerCoins >= 100) && (SpecialBuffLimit <= 3))
+        if ((data.playerCoins >= 100) && (specialBuffLimit <= 3))
         {
-            SpecialBuffLimit += 1;
+            specialBuffLimit += 1;
             PC.cooldownTimeSpecial -= 0.5f;
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
@@ -72,9 +72,9 @@ public class ShopScript : MonoBehaviour
 
     public void OnPurchaseUltimateBuff()
     {
-        if ((data.playerCoins >= 100) && (SpecialBuffLimit <= 3))
+        if ((data.playerCoins >= 100) && (ultimateBuffLimit <= 3))
         {
-            UltimateBuffLimit += 1;
+            ultimateBuffLimit += 1;
             PC.cooldownTimeUltimate -= 0.5f;
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
@@ -99,6 +99,7 @@ public class ShopScript : MonoBehaviour
                     Debug.Log("bruh");
                     PA.WeaponID = 4;
                     PC.WeaponIDs = 4;
+                    PA.isWeaponSwitching = true;
                     data.playerAttackWeaponID = 4;
                     data.playerWeaponID = 4;
                 break;
