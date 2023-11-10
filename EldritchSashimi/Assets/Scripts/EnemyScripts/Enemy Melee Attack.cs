@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMeleeAttack : MonoBehaviour, IDamageablePlayer
+public class EnemyMeleeAttack : MonoBehaviour
 {
+    public float enemyDamage;
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerController>())
+        if (other.gameObject.TryGetComponent(out IDamageablePlayer Damage))
         {
-            DamagePlayer(1);
+            Damage.DamagePlayer(enemyDamage);
+
         }
-    }
-
-    public void DamagePlayer(float damageAmount)
-    {
-
     }
 }

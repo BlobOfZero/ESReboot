@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject MainPanel;
-    [SerializeField] private GameObject OptionsPanel;
+    [SerializeField] private GameObject LevelSelectPanel;
     public PlayerData data;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -16,24 +18,26 @@ public class MainMenuScript : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         MainPanel.SetActive(true);
-        OptionsPanel.SetActive(false);
+        LevelSelectPanel.SetActive(false);
+        source = GetComponent<AudioSource>();
+        source.Play();
     }
 
    public void PlayGame()
     {
-        SceneManager.LoadScene("Shallows");
+        SceneManager.LoadScene("ShallowsK");
         data.playerCoins = 0;
     }
 
-   public void Options()
+   public void LevelSelect()
     {
-        OptionsPanel.SetActive(true);
+        LevelSelectPanel.SetActive(true);
         MainPanel.SetActive(false);
     }
 
     public void Back()
     {
-        OptionsPanel.SetActive(false);
+        LevelSelectPanel.SetActive(false);
         MainPanel.SetActive(true);
     }
 

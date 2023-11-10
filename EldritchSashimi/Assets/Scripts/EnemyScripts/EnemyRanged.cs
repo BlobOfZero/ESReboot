@@ -30,9 +30,17 @@ public class EnemyRanged : MonoBehaviour, IDamageable
 
     [SerializeField] private float health = 3;
 
+    [SerializeField] private float Maxhealth = 10;
+
+    [SerializeField] FloatingHealthbar healthBar;
+
+    // Coin prefab for drop
+    public GameObject coinPrefab;
+
     void awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        healthBar = GetComponentInChildren<FloatingHealthbar>();
     }
 
   
@@ -118,6 +126,7 @@ public class EnemyRanged : MonoBehaviour, IDamageable
     {
         Debug.Log("Enemy damaged for" + damageAmount);
         health -= damageAmount;
+        healthBar.UpdateHealthbar(health, Maxhealth);
     }
 
     void death()
@@ -125,6 +134,7 @@ public class EnemyRanged : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(coinPrefab, transform.position, transform.rotation);
         }
     }
 }

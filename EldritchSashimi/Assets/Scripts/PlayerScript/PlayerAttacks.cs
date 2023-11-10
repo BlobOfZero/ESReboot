@@ -7,9 +7,9 @@ public class PlayerAttacks : MonoBehaviour
 {
 
     public float knifecountdownDuration = 5f;
-    public float katanacountdownDuration = 5f;
-    public float chopstickcountdownDuration = 5f;
-    public float tridentcountdownDuration = 5f;
+    public float katanacountdownDuration;
+    public float chopstickcountdownDuration;
+    public float tridentcountdownDuration;
     public float pauseDuration = 2f;
 
     [SerializeField] private ParticleSystem KnifeSlash;
@@ -19,42 +19,97 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField] private GameObject ChopstickRange;
     [SerializeField] private GameObject KatanaRange;
     [SerializeField] private GameObject TridentRange;
-    public int WeaponID;
+    public GameObject knife;
+    public GameObject chopsticks;
+    public GameObject katana;
+    public GameObject trident;
+    public bool isWeaponSwitching;
+
+    [Header("player data refrence")]
+    public PlayerData data;
+    //**********************************************************
+
+    public int WeaponID = 1;
+
+    void Awake()
+    {
+        WeaponID = data.playerAttackWeaponID;
+        data.playerAttackWeaponID = WeaponID;
+        isWeaponSwitching = false;
+    }
 
     private void Start()
     {
         // Start the countdown
-        currentTime = knifecountdownDuration;
-        WeaponID = 1;
+        currentTime = knifecountdownDuration;      
     }
 
     private void Update()
     {
+       WeaponAttacks();
+    }
+
+    private void WeaponAttacks()
+    {
         switch (WeaponID)
         {
             case 1:
-
                 Knife();
 
-             break;
+                if (isWeaponSwitching)
+                {
+                    knife.gameObject.SetActive(true);
+                    katana.gameObject.SetActive(false);
+                    chopsticks.gameObject.SetActive(false);
+                    trident.gameObject.SetActive(false);
+                    isWeaponSwitching = false;
+                   
+                }              
+                
+                break;
 
-           case 2:
-
+            case 2:
                 Chopstick();
-
-            break;
+                if (isWeaponSwitching)
+                {
+                    chopsticks.gameObject.SetActive(true);
+                    knife.gameObject.SetActive(false);
+                    trident.gameObject.SetActive(false);
+                    katana.gameObject.SetActive(false);
+                    isWeaponSwitching = false;
+                    
+                }
+                    
+                break;
 
             case 3:
-
                 Katana();
+                if (isWeaponSwitching)
+                {
 
-            break;
+                    katana.gameObject.SetActive(true);
+                    trident.gameObject.SetActive(false);
+                    knife.gameObject.SetActive(false);
+                    chopsticks.gameObject.SetActive(false);
+                    isWeaponSwitching = false;
+                    
+                }
+
+                break;
 
             case 4:
+                Trident();
+                if (isWeaponSwitching)
+                {
+                    trident.gameObject.SetActive(true);
+                    chopsticks.gameObject.SetActive(false);
+                    knife.gameObject.SetActive(false);
+                    katana.gameObject.SetActive(false);
+                    isWeaponSwitching = false;
+                    
+                }
 
-             Trident();
-
-            break;
+                break;
         }
     }
 
@@ -165,7 +220,7 @@ public class PlayerAttacks : MonoBehaviour
                 KatanaRange.gameObject.SetActive(true);
 
                 // Start the pause timer
-                Invoke("katanacountdownDuration", pauseDuration);
+                Invoke("StartCountdownKatana", pauseDuration);
             }
         }
     }

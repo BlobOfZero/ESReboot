@@ -13,5 +13,9 @@ public class EnemyBullet : MonoBehaviour
             DamagePlayer.DamagePlayer(damage);
             Destroy(gameObject);
         }
+        else 
+        {
+            Destroy(gameObject);
+        }
     }
 }

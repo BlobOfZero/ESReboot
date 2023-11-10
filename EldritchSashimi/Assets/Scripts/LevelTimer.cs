@@ -18,13 +18,17 @@ public class LevelTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     //**********************************
 
+    // death variables
+    public GameObject GameOverUI;
+
     private void Start()
     {
         // Starts the timer automatically
         timerIsRunning = true;
-        maxTime = timeRemaining;
+        timeRemaining = maxTime;
         shopUI.SetActive(false);
         timerText.text = timeRemaining.ToString("0.0");
+        GameOverUI.SetActive(false);
     }
     void Update()
     {
@@ -51,14 +55,32 @@ public class LevelTimer : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void leavShop()
+    public void FinalLevel()
     {
+        SceneManager.LoadScene(3);
+    }
+
+    public void leaveShop()
+    {    
         shopUI.SetActive(false);
         Time.timeScale = 1;
+        timerIsRunning = true;
+        timeRemaining = maxTime;
     }
 
     public void ReturnToMain()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        GameOverUI.SetActive(true);
     }
 }
