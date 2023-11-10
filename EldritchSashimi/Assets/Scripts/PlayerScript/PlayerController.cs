@@ -34,9 +34,11 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************************
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
+    private bool isDashing;
     public float cooldowndashTime;
     [SerializeField] private float nextdashTime;
     [SerializeField] private ParticleSystem RegularDash;
+    [SerializeField] private Image imageCooldownDash;
     private bool iFrames;
     //**********************************************************
 
@@ -44,8 +46,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************************
     public float cooldownTimeSpecial;
     public float cooldownTimeUltimate;
+    private bool isSpecialAttacking;
+    private bool isUltimateAttacking;
     [SerializeField] private float nextFireTimeSpecial;
     [SerializeField] private float nextFireTimeUltimate;
+    [SerializeField] private Image imageCooldownSpecial;
+    [SerializeField] private Image imageCooldownUltimate;
     //**********************************************************
 
     [Header("for special knife")]
@@ -143,13 +149,79 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Ultimate").performed -= OnUltimate;
     }
 
+    private void Update()
+    {
+        MovePlayer();
+
+
+        if (isDashing)
+        {
+            ApplyDashCooldown();
+        }
+        
+        if (isSpecialAttacking) 
+        {
+            ApplySpecialCoolDown();
+        }
+
+        if (isUltimateAttacking) 
+        {
+            ApplyUltimateCooldown();
+        }
+    }
+
+    void ApplyDashCooldown()
+    {
+        nextdashTime -= Time.deltaTime;
+
+        if (nextdashTime <= 0.0f)
+        {
+            isDashing = false;
+            imageCooldownDash.fillAmount = 0.0f;
+        }
+        else
+        {            
+            imageCooldownDash.fillAmount = nextdashTime/cooldowndashTime;
+        }
+    }
+
+    void ApplyUltimateCooldown()
+    {
+       nextFireTimeUltimate -= Time.deltaTime;
+
+        if (nextFireTimeUltimate <= 0.0f)
+        {
+            isDashing = false;
+            imageCooldownUltimate.fillAmount = 0.0f;
+        }
+        else
+        {
+            imageCooldownUltimate.fillAmount = nextFireTimeUltimate / cooldownTimeUltimate;
+        }
+    }
+
+    void ApplySpecialCoolDown()
+    {
+        nextFireTimeSpecial -= Time.deltaTime;
+
+        if (nextFireTimeSpecial <= 0.0f)
+        {
+            isDashing = false;
+            imageCooldownSpecial.fillAmount = 0.0f;
+        }
+        else
+        {
+            imageCooldownSpecial.fillAmount = nextFireTimeSpecial / cooldownTimeSpecial;
+        }
+    }
+
     void Awake() 
     {
         WeaponIDs = data.playerWeaponID;
         data.playerWeaponID = WeaponIDs;       
-        source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();       
     }
-
+  
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -159,9 +231,14 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         isDead = false;
         knifeattack = GetComponent<KnifeAttack>();        
         Time.timeScale = 1;
-        isDead = false;
+        isDashing = false;
+        isSpecialAttacking = false;
+        isUltimateAttacking = false;
         healthText.text = "Current health: " + currentHealth;
         iFrames = false;
+        imageCooldownDash.fillAmount = 0.0f;
+        imageCooldownSpecial.fillAmount = 0.0f;
+        imageCooldownUltimate.fillAmount = 0.0f;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -171,13 +248,14 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        if (Time.time > nextdashTime)
+        if (Time.deltaTime > nextdashTime)
         {
             StartCoroutine(Dash());
-            nextdashTime = Time.time + cooldowndashTime;
+            nextdashTime = Time.deltaTime + cooldowndashTime;
             RegularDash.Play();
             source.PlayOneShot(dashClip);
-        }
+            isDashing = true;
+        }       
     }
 
     public void OnSpecial(InputAction.CallbackContext context)
@@ -186,49 +264,53 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         {
             case 1:
 
-                if (Time.time > nextFireTimeSpecial)
+                if (Time.deltaTime > nextFireTimeSpecial)
                 {
 
                     Debug.Log("special move1");
                     StartCoroutine(DashAttack());
-                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     Special1.Play();
+                    isSpecialAttacking = true;
                 }
                 break;
 
             case 2:
 
-                if (Time.time > nextFireTimeSpecial)
+                if (Time.deltaTime > nextFireTimeSpecial)
                 {
                     Debug.Log("special move2");
                     StartCoroutine(ChopstickSpecialMove());
-                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
                     //specialChopstick.Play();
+                    isSpecialAttacking = true;
                 }
                 break;
 
             case 3:
 
-                if (Time.time > nextFireTimeSpecial)
+                if (Time.deltaTime > nextFireTimeSpecial)
                 {
                     Debug.Log("special move3");
                     StartCoroutine(KatanaSpecialMove()); 
-                     nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                     nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
                     //specialChopstick.Play();  <-- this is going to be something else obviously
+                    isSpecialAttacking = true;
                 }
                 break;
 
             case 4:
 
-                if (Time.time > nextFireTimeSpecial)
+                if (Time.deltaTime > nextFireTimeSpecial)
                 {
                     Debug.Log("special move3");
                     StartCoroutine(TridentSpecialMove());
-                    nextFireTimeSpecial = Time.time + cooldownTimeSpecial;
+                    nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
                     //specialChopstick.Play(); <-- this is going to be something else obviously
+                    isSpecialAttacking = true;
                 }
                 break;
         }
@@ -243,54 +325,51 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         switch (WeaponIDs)
         {
             case 1:
-                if (Time.time > nextFireTimeUltimate)
+                if (Time.deltaTime > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move1");
                     StartCoroutine(KnifeUltimate());
-                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
                     Ultimate1.Play();
+                    isUltimateAttacking = true;
                 }
                 break;
 
             case 2:
-                if (Time.time > nextFireTimeUltimate)
+                if (Time.deltaTime > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move2");
                     StartCoroutine(ChopstickUltimateMove());
-                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
                     //this is commented because we don't have the particles for it
                     //ultimateChopstick.Play();
-
+                    isUltimateAttacking = true;
                 }
                 break;
 
             case 3:
-                if (Time.time > nextFireTimeUltimate)
+                if (Time.deltaTime > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move3");
                     StartCoroutine(KatanaUltimateMove());
-                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;                    
+                    nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
+                    isUltimateAttacking = true;
                 }
                 break;
 
             case 4:
-                if (Time.time > nextFireTimeUltimate)
+                if (Time.deltaTime > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move4");
                     StartCoroutine(TridentUltimateMove()); 
-                    nextFireTimeUltimate = Time.time + cooldownTimeUltimate;
+                    nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
+                    isUltimateAttacking = true;
                 }
                 break;
         }
     }
 
-    
-
-    private void Update()
-    {
-        MovePlayer();
-       
-    }
+      
 
     public void MovePlayer()
     {
@@ -310,7 +389,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         while (Time.time < startTime + dashTime)
         {         
             controller.Move(transform.forward * dashSpeed * Time.deltaTime);
-            iFrames = true;
+            iFrames = true;           
             yield return null;
         }
         iFrames = false;

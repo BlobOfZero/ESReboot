@@ -2218,6 +2218,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 706348364}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &497010638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4314419200951295518, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1338168140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &504924494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4625334799833352044, guid: 670cc34b8ee681846ab0661188328ea7,
@@ -5556,6 +5568,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dc21e24eb3da9f44a49ea319dd0193c, type: 3}
+--- !u!114 &1338168141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7171785762420751602, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1338168140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1338168142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3653990140384161325, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1338168140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1460001709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7422,6 +7458,21 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1723567878}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: imageCooldownDash
+      value: 
+      objectReference: {fileID: 1338168141}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: imageCooldownSpecial
+      value: 
+      objectReference: {fileID: 497010638}
+    - target: {fileID: 1107924738119824378, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: imageCooldownUltimate
+      value: 
+      objectReference: {fileID: 1338168142}
     - target: {fileID: 1592081672574722681, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: m_Enabled
