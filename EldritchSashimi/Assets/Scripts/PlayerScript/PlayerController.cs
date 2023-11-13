@@ -130,6 +130,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private AudioClip dashClip;
     [SerializeField] private AudioClip slashClip;
 
+    // animations
+    public Animator playAnim;
+
     //refrences
     //**********************************************************
     private KnifeAttack knifeattack;
@@ -140,6 +143,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
+        
+       
         
     }
     void OnDisable()
@@ -156,6 +161,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
         if (isDashing)
         {
+            
             ApplyDashCooldown();
         }
         
@@ -224,6 +230,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
   
     public void Start()
     {
+        playAnim = GetComponent<Animator>();
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         maxHealth = 10;
@@ -244,18 +252,21 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
+        playAnim.SetBool("run",true);
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
         if (Time.deltaTime > nextdashTime)
         {
+            
             StartCoroutine(Dash());
             nextdashTime = Time.deltaTime + cooldowndashTime;
             RegularDash.Play();
             source.PlayOneShot(dashClip);
             isDashing = true;
-        }       
+        }
+        
     }
 
     public void OnSpecial(InputAction.CallbackContext context)
@@ -377,7 +388,15 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
         if (movement != Vector3.zero)
         {
+            playAnim.SetBool("run", true);
+            playAnim.SetBool("idle", false);
+            Debug.Log("running");
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+        }
+        else
+        {
+            playAnim.SetBool("run", false);
+            playAnim.SetBool("idle", true);
         }
 
         controller.Move(movement * speed * Time.deltaTime);
@@ -509,12 +528,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
             if (currentHealth <= 0)
             {
                 isDead = true;
+
+                playAnim.SetBool("dead", true);
                 Destroy(gameObject);
-                Time.timeScale = 0;
                 timer.GameOver();
             }
         }
-    
     }
    //************************************************
 }

@@ -27,6 +27,8 @@ public class PlayerAttacks : MonoBehaviour
 
     [Header("player data refrence")]
     public PlayerData data;
+
+    Animator animator;
     //**********************************************************
 
     public int WeaponID = 1;
@@ -41,7 +43,8 @@ public class PlayerAttacks : MonoBehaviour
     private void Start()
     {
         // Start the countdown
-        currentTime = knifecountdownDuration;      
+        currentTime = knifecountdownDuration;  
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -168,11 +171,15 @@ public class PlayerAttacks : MonoBehaviour
                 isCountingDown = false;
 
                 // Trigger an event or perform an action when the countdown finishes
-
+                animator.SetBool("attack", true);
                 knifeRange.gameObject.SetActive(true);
                 KnifeSlash.Play();
                 // Start the pause timer
                 Invoke("StartCountdownKnife", pauseDuration);
+            }
+            else
+            {
+                animator.SetBool("attack", false);
             }
         }
     }
