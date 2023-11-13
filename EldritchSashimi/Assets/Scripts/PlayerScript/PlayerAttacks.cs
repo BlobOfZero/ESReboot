@@ -13,6 +13,9 @@ public class PlayerAttacks : MonoBehaviour
     public float pauseDuration = 2f;
 
     [SerializeField] private ParticleSystem KnifeSlash;
+    [SerializeField] private ParticleSystem chopsticksSlash;
+    [SerializeField] private ParticleSystem tridentSlash;
+    [SerializeField] private ParticleSystem KatanaSlash;
     private float currentTime;
     private bool isCountingDown = true;
     [SerializeField] private GameObject knifeRange;
@@ -199,7 +202,7 @@ public class PlayerAttacks : MonoBehaviour
                 isCountingDown = false;
 
                 // Trigger an event or perform an action when the countdown finishes
-
+                chopsticksSlash.Play();
                 ChopstickRange.gameObject.SetActive(true);
 
                 // Start the pause timer
@@ -223,7 +226,7 @@ public class PlayerAttacks : MonoBehaviour
                 isCountingDown = false;
 
                 // Trigger an event or perform an action when the countdown finishes
-
+                KatanaSlash.Play();
                 KatanaRange.gameObject.SetActive(true);
 
                 // Start the pause timer
@@ -247,7 +250,7 @@ public class PlayerAttacks : MonoBehaviour
                 isCountingDown = false;
 
                 // Trigger an event or perform an action when the countdown finishes
-
+                tridentSlash.Play();
                 TridentRange.gameObject.SetActive(true);
 
                 // Start the pause timer

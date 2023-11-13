@@ -423,6 +423,12 @@ MonoBehaviour:
   tridentcountdownDuration: 1.5
   pauseDuration: 0.5
   KnifeSlash: {fileID: 4438117973895353365}
+  chopsticksSlash: {fileID: 83275999662481858, guid: 8904795df9220b44480d0878c19a0b47,
+    type: 3}
+  tridentSlash: {fileID: 83275999662481858, guid: e1d51248c27425b46bb1466310153720,
+    type: 3}
+  KatanaSlash: {fileID: 83275999662481858, guid: 5fca882389e9faf448322ebd65bd4cc0,
+    type: 3}
   knifeRange: {fileID: 9183624284385817891}
   ChopstickRange: {fileID: 7487641860329366545}
   KatanaRange: {fileID: 2724788032646289519}

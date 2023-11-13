@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public PlayerData data;
     AudioSource source;
-    public AudioClip clip;
   
 
     private void Awake()
