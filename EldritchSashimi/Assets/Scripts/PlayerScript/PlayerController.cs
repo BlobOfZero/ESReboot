@@ -160,8 +160,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
 
         if (isDashing)
-        {
-            
+        {       
             ApplyDashCooldown();
         }
         
@@ -173,51 +172,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         if (isUltimateAttacking) 
         {
             ApplyUltimateCooldown();
-        }
-    }
-
-    void ApplyDashCooldown()
-    {
-        nextdashTime -= Time.deltaTime;
-
-        if (nextdashTime <= 0.0f)
-        {
-            isDashing = false;
-            imageCooldownDash.fillAmount = 0.0f;
-        }
-        else
-        {            
-            imageCooldownDash.fillAmount = nextdashTime/cooldowndashTime;
-        }
-    }
-
-    void ApplyUltimateCooldown()
-    {
-       nextFireTimeUltimate -= Time.deltaTime;
-
-        if (nextFireTimeUltimate <= 0.0f)
-        {
-            isDashing = false;
-            imageCooldownUltimate.fillAmount = 0.0f;
-        }
-        else
-        {
-            imageCooldownUltimate.fillAmount = nextFireTimeUltimate / cooldownTimeUltimate;
-        }
-    }
-
-    void ApplySpecialCoolDown()
-    {
-        nextFireTimeSpecial -= Time.deltaTime;
-
-        if (nextFireTimeSpecial <= 0.0f)
-        {
-            isDashing = false;
-            imageCooldownSpecial.fillAmount = 0.0f;
-        }
-        else
-        {
-            imageCooldownSpecial.fillAmount = nextFireTimeSpecial / cooldownTimeSpecial;
         }
     }
 
@@ -248,7 +202,49 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         imageCooldownSpecial.fillAmount = 0.0f;
         imageCooldownUltimate.fillAmount = 0.0f;
     }
+    void ApplyDashCooldown()
+    {
+        nextdashTime -= Time.deltaTime;
 
+        if (nextdashTime <= 0.0f)
+        {
+            imageCooldownDash.fillAmount = 0.0f;
+            isDashing = false;
+        }
+        else
+        {
+            imageCooldownDash.fillAmount = nextdashTime / cooldowndashTime;
+        }
+    }
+    void ApplySpecialCoolDown()
+    {
+        nextFireTimeSpecial -= Time.deltaTime;
+
+        if (nextFireTimeSpecial <= 0.0f)
+        {
+            imageCooldownSpecial.fillAmount = 0.0f;
+            isSpecialAttacking = false;
+        }
+        else
+        {
+            imageCooldownSpecial.fillAmount = nextFireTimeSpecial / cooldownTimeSpecial;
+        }
+    }
+
+    void ApplyUltimateCooldown()
+    {
+        nextFireTimeUltimate -= Time.deltaTime;
+
+        if (nextFireTimeUltimate <= 0.0f)
+        {
+            imageCooldownUltimate.fillAmount = 0.0f;
+            isUltimateAttacking = false;
+        }
+        else
+        {
+            imageCooldownUltimate.fillAmount = nextFireTimeUltimate / cooldownTimeUltimate;
+        }
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
