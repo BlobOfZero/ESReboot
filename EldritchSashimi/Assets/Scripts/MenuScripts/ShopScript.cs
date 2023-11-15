@@ -17,6 +17,12 @@ public class ShopScript : MonoBehaviour
     AudioSource source;
     public AudioClip clip;
     public TextMeshProUGUI coinText;
+    public TextMeshProUGUI tridentText;
+    public TextMeshProUGUI chopstickText;
+    public TextMeshProUGUI katanaText;
+    public int costTrident;
+    public int costChopstick;
+    public int costKatana;
 
     //trident stuff
     //****************************************
@@ -47,6 +53,9 @@ public class ShopScript : MonoBehaviour
     private void Update()
     {
        coinText.text = "Tentacles: " + data.playerCoins.ToString();
+        katanaText.text = "" +costKatana.ToString();
+        tridentText.text = "" + costTrident.ToString();
+        chopstickText.text = "" + costChopstick.ToString();
     }
     public void OnPurchaseDashBuff()
     {
@@ -95,10 +104,10 @@ public class ShopScript : MonoBehaviour
 
     public void TridentPurchase()
     {
-        if ((data.playerCoins >= 100) && TridentBuff <= 4)
+        if ((data.playerCoins >= costTrident) && TridentBuff <= 4)
         {
             purchaseAudio.Play();
-            manager.DecreaseCoins(100);
+            manager.DecreaseCoins(costTrident);
             TridentBuff += 1;
             tridentPurchases += 1;
             source.PlayOneShot(clip);
@@ -112,18 +121,21 @@ public class ShopScript : MonoBehaviour
                     PA.isWeaponSwitching = true;
                     data.playerAttackWeaponID = 4;
                     data.playerWeaponID = 4;
+                    costTrident += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                 break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.tridentcountdownDuration -= 0.125f;
+                    costTrident += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                 break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.tridentcountdownDuration -= 0.125f;
+                    costTrident += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                 break;
             }
@@ -133,11 +145,11 @@ public class ShopScript : MonoBehaviour
 
     public void ChopstickPurchase()
     {
-        if ((data.playerCoins >= 100) && ChopstickBuff  <= 4)
+        if ((data.playerCoins >= costChopstick) && ChopstickBuff  <= 4)
         {
             
             purchaseAudio.Play();
-            manager.DecreaseCoins(100);
+            manager.DecreaseCoins(costChopstick);
             ChopstickBuff += 1;
            chopstickPurchases += 1;
             source.PlayOneShot(clip);
@@ -150,18 +162,21 @@ public class ShopScript : MonoBehaviour
                     PC.WeaponIDs = 2;
                     data.playerAttackWeaponID = 2;
                     data.playerWeaponID = 2;
+                    costChopstick += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.chopstickcountdownDuration -= 0.25f;
+                    costChopstick += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.chopstickcountdownDuration -= 0.25f;
+                    costChopstick += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
             }
@@ -171,11 +186,11 @@ public class ShopScript : MonoBehaviour
 
     public void KatanaPurchase()
     {
-        if ((data.playerCoins >= 100) && KatanaBuff <= 4)
+        if ((data.playerCoins >= costKatana) && KatanaBuff <= 4)
         {
             
             purchaseAudio.Play();
-            manager.DecreaseCoins(100);
+            manager.DecreaseCoins(costKatana);
             KatanaBuff += 1;
             katanaPurchases += 1;
             source.PlayOneShot(clip);
@@ -188,18 +203,21 @@ public class ShopScript : MonoBehaviour
                     PC.WeaponIDs = 3;
                     data.playerAttackWeaponID = 3;
                     data.playerWeaponID = 3;
+                    costKatana += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.katanacountdownDuration -= 0.25f;
+                    costKatana += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.katanacountdownDuration -= 0.25f;
+                    costKatana += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
                     break;
             }

@@ -4002,6 +4002,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &359597785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5363071516414845330, guid: 2cbb904fd3612e24f953917eb321c05e,
+    type: 3}
+  m_PrefabInstance: {fileID: 359597783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &359597786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1209099430946361282, guid: 2cbb904fd3612e24f953917eb321c05e,
+    type: 3}
+  m_PrefabInstance: {fileID: 359597783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &359597787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6356625788806022900, guid: 2cbb904fd3612e24f953917eb321c05e,
+    type: 3}
+  m_PrefabInstance: {fileID: 359597783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &361546451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13116,6 +13152,12 @@ MonoBehaviour:
   manager: {fileID: 1103406249}
   clip: {fileID: 8300000, guid: 7fa7bfd494e6a6d47b65a517ec039052, type: 3}
   coinText: {fileID: 359597784}
+  tridentText: {fileID: 359597787}
+  chopstickText: {fileID: 359597786}
+  katanaText: {fileID: 359597785}
+  costTrident: 1000
+  costChopstick: 1000
+  costKatana: 1000
 --- !u!114 &1103406249
 MonoBehaviour:
   m_ObjectHideFlags: 0
