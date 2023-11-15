@@ -4369,6 +4369,14 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
   purchaseAudio: {fileID: 670810012}
   manager: {fileID: 670810010}
+  clip: {fileID: 0}
+  coinText: {fileID: 0}
+  tridentText: {fileID: 0}
+  chopstickText: {fileID: 0}
+  katanaText: {fileID: 0}
+  costTrident: 0
+  costChopstick: 0
+  costKatana: 0
 --- !u!82 &670810012
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8918,6 +8926,11 @@ PrefabInstance:
       propertyPath: enemyPrefabs
       value: 
       objectReference: {fileID: 1500103317}
+    - target: {fileID: 753646422748542930, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 987513904094866421, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: m_Name
@@ -8957,6 +8970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ultimateChopstickTime
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282576067212273501, guid: 670cc34b8ee681846ab0661188328ea7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625334799833352044, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
