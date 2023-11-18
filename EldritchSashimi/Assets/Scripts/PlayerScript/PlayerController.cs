@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         isDashing = false;
         isSpecialAttacking = false;
         isUltimateAttacking = false;
-        healthText.text = "Current health: " + currentHealth;
+        healthText.text = currentHealth.ToString();
         iFrames = false;
         imageCooldownDash.fillAmount = 0.0f;
         imageCooldownSpecial.fillAmount = 0.0f;
@@ -519,7 +519,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         if (!iFrames)
         {
             currentHealth -= damageAmount;
-            healthText.text = "Current health: " + currentHealth;
+            healthText.text = currentHealth.ToString();
 
             if (currentHealth <= 0)
             {

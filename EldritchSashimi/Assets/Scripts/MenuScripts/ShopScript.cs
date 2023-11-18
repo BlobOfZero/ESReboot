@@ -52,7 +52,7 @@ public class ShopScript : MonoBehaviour
 
     private void Update()
     {
-       coinText.text = "Tentacles: " + data.playerCoins.ToString();
+       coinText.text = data.playerCoins.ToString();
         katanaText.text = "" +costKatana.ToString();
         tridentText.text = "" + costTrident.ToString();
         chopstickText.text = "" + costChopstick.ToString();
@@ -67,7 +67,7 @@ public class ShopScript : MonoBehaviour
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
-            coinText.text = "Tentacles: " + data.playerCoins.ToString();
+            coinText.text = data.playerCoins.ToString();
         }
         else return;
     }
@@ -82,7 +82,7 @@ public class ShopScript : MonoBehaviour
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
-            coinText.text = "Tentacles: " + data.playerCoins.ToString();
+            coinText.text = data.playerCoins.ToString();
         }
         else return;
     }
@@ -97,7 +97,7 @@ public class ShopScript : MonoBehaviour
             purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
-            coinText.text = "Tentacles: " + data.playerCoins.ToString();
+            coinText.text = data.playerCoins.ToString();
         }
         else return;
     }
@@ -122,21 +122,21 @@ public class ShopScript : MonoBehaviour
                     data.playerAttackWeaponID = 4;
                     data.playerWeaponID = 4;
                     costTrident += 100;
-                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    coinText.text = data.playerCoins.ToString();
                 break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.tridentcountdownDuration -= 0.125f;
                     costTrident += 100;
-                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    coinText.text = data.playerCoins.ToString();
                 break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.tridentcountdownDuration -= 0.125f;
                     costTrident += 100;
-                    coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    coinText.text = data.playerCoins.ToString();
                 break;
             }
         }

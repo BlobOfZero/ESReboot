@@ -410,7 +410,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 13fb138b2b7dd684f98f643641a80045,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 13fb138b2b7dd684f98f643641a80045,
         type: 3}
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 711486598281483587}
   player: {fileID: 0}
-  speed: 2
+  speed: 3
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
@@ -545,8 +545,8 @@ MonoBehaviour:
   PlayerInAttackRange: 0
   AttackRange: 4
   health: 69
-  Maxhealth: 10
-  healthBar: {fileID: 0}
+  Maxhealth: 69
+  healthBar: {fileID: 3813450562306348191}
   coinPrefab: {fileID: 6497540146959266414, guid: e4c86727e8587314790a1a88f01b813f,
     type: 3}
 --- !u!195 &711486598281483587
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d810409d9f4cf994aac818e45f279c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDamage: 1
+  enemyDamage: 2
 --- !u!65 &1111427930047593494
 BoxCollider:
   m_ObjectHideFlags: 0

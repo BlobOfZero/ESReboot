@@ -9,6 +9,7 @@ public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject LevelSelectPanel;
+    [SerializeField] private GameObject creditsPanel;
     public PlayerData data;
     AudioSource source;
 
@@ -27,12 +28,50 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("ShallowsK");
         data.playerCoins = 0;
+        data.playerWeaponID = 1;
+        data.playerAttackWeaponID = 1;
     }
 
-   public void LevelSelect()
+    public void CRLevel1()
+    {
+        SceneManager.LoadScene("ShallowsCR");
+        data.playerCoins = 0;
+        data.playerWeaponID = 1;
+        data.playerAttackWeaponID = 1;
+    }
+
+    public void CRLevel2()
+    {
+        SceneManager.LoadScene("ReefCR");
+        data.playerCoins = 0;
+        data.playerWeaponID = 1;
+        data.playerAttackWeaponID = 1;
+    }
+
+    public void CRLevel3()
+    {
+        SceneManager.LoadScene("DepthsCR");
+        data.playerCoins = 0;
+        data.playerWeaponID = 1;
+        data.playerAttackWeaponID = 1;
+    }
+
+    public void LevelSelect()
     {
         LevelSelectPanel.SetActive(true);
         MainPanel.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        creditsPanel.SetActive(true);
+        MainPanel.SetActive(false);
+    }
+
+    public void CreditsBack()
+    {
+        creditsPanel.SetActive(false);
+        MainPanel.SetActive(true);
     }
 
     public void Back()

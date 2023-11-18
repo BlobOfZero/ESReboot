@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35f06f5e13cbcd4aad7d2b6669b0682, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  playerCoins: 0
-  playerAttackWeaponID: 1
-  playerWeaponID: 1
+  playerCoins: 100
+  playerAttackWeaponID: 2
+  playerWeaponID: 2
