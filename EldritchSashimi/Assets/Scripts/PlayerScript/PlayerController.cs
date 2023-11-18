@@ -188,7 +188,6 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        maxHealth = 10;
         currentHealth = maxHealth;      
         isDead = false;
         knifeattack = GetComponent<KnifeAttack>();        

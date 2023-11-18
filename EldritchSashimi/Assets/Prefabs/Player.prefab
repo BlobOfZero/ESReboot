@@ -328,8 +328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   controller: {fileID: 1592081672574722681}
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 10
+  currentHealth: 10
   healthText: {fileID: 0}
   timer: {fileID: 0}
   data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
@@ -356,24 +356,29 @@ MonoBehaviour:
   Ultimate1: {fileID: 2659119497727839648}
   chopstickSpecialTime: 1
   chopstickSpecial: {fileID: 3776668954241620776}
-  specialChopstick: {fileID: 0}
+  specialChopstick: {fileID: 1557455799516331067, guid: 78ba0a445ed8c684aa7182bdb775b8b5,
+    type: 3}
   ultimateAttackChopstick: {fileID: 7297788601333864637}
   ultimateChopstickTime: 10
-  ultimateChopstick: {fileID: 0}
+  ultimateChopstick: {fileID: 2722680741324090209, guid: c6608862345f13b409b1a38d3446265b,
+    type: 3}
   tridentSpecialTime: 2
   tridentSpecial: {fileID: 3282576067212273501}
-  tridentChopstick: {fileID: 0}
+  tridentChopstick: {fileID: 2902327405795859509, guid: 6b959f6366c03854ebab7937c78348ad,
+    type: 3}
   ultimateAttackTrident: {fileID: 3059285457300577273, guid: 6149a48935988e844bf71ce00e078403,
     type: 3}
   ultimateTridentTime: 3
-  ultimateTrident: {fileID: 0}
+  ultimateTrident: {fileID: 52968098453187445, guid: c0eaee3019e654e4d8deb59fd9ceb6a4,
+    type: 3}
   specialAttackKatana: {fileID: 1732741329585458782, guid: 43c124bd8de5c4844932660852050084,
     type: 3}
   specialKatanaTime: 2
-  specialKatana: {fileID: 0}
+  specialKatana: {fileID: 2746158479230710074, guid: 0b3f65f3e7b616b46b85c6c845b2f6e8,
+    type: 3}
   katanaUltimateTime: 3
   ultimateAttackKatana: {fileID: 1188724243787363493}
-  katana: {fileID: 0}
+  katana: {fileID: 5881387341133145891, guid: 13e3798484c149e4e9e89ff648ddda11, type: 3}
   WeaponIDs: 1
   actions: {fileID: -944628639613478452, guid: 053cce96a2ed73149a0804f8119d6528, type: 3}
   dashClip: {fileID: 8300000, guid: dbf2224f1ecad38418726d155820818b, type: 3}

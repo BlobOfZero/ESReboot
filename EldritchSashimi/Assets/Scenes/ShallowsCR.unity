@@ -2396,6 +2396,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810008}
+    - target: {fileID: 1574757007652580292, guid: 2cbb904fd3612e24f953917eb321c05e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: leaveShop
+      objectReference: {fileID: 0}
     - target: {fileID: 1601807352384479088, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2897,8 +2902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 238136930}
   coinText: {fileID: 1549177777}
-  timeRemaining: 45
-  maxTime: 45
+  timeRemaining: 60
+  maxTime: 60
   timerIsRunning: 0
   manager: {fileID: 670810010}
   timerText: {fileID: 1698820628}
@@ -5589,6 +5594,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810008}
+    - target: {fileID: 1197966225816151853, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_text
+      value: Until next shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197966225816151853, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197966225816151853, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 13.031811
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197966225816151853, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -108.78054
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197966225816151853, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1307610225152255938, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5719,6 +5749,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810008}
+    - target: {fileID: 5603793691688549189, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -53.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7598,7 +7633,7 @@ PrefabInstance:
     - target: {fileID: 542395545480641940, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
       propertyPath: delayspawnrate
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 987513904094866421, guid: 670cc34b8ee681846ab0661188328ea7,
         type: 3}
