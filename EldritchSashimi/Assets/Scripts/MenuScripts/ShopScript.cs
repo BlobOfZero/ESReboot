@@ -118,7 +118,6 @@ public class ShopScript : MonoBehaviour
                     Debug.Log("bruh");
                     PA.WeaponID = 4;
                     PC.WeaponIDs = 4;
-                    PA.isWeaponSwitching = true;
                     data.playerAttackWeaponID = 4;
                     data.playerWeaponID = 4;
                     costTrident += 100;

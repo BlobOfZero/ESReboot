@@ -62,58 +62,50 @@ public class PlayerAttacks : MonoBehaviour
             case 1:
                 Knife();
 
-                if (isWeaponSwitching)
-                {
                     knife.gameObject.SetActive(true);
                     katana.gameObject.SetActive(false);
                     chopsticks.gameObject.SetActive(false);
                     trident.gameObject.SetActive(false);
                     isWeaponSwitching = false;
-                   
-                }              
+                           
                 
                 break;
 
             case 2:
                 Chopstick();
-                if (isWeaponSwitching)
-                {
+              
                     chopsticks.gameObject.SetActive(true);
                     knife.gameObject.SetActive(false);
                     trident.gameObject.SetActive(false);
                     katana.gameObject.SetActive(false);
                     isWeaponSwitching = false;
                     
-                }
-                    
+                
                 break;
 
             case 3:
                 Katana();
-                if (isWeaponSwitching)
-                {
-
+              
                     katana.gameObject.SetActive(true);
                     trident.gameObject.SetActive(false);
                     knife.gameObject.SetActive(false);
                     chopsticks.gameObject.SetActive(false);
                     isWeaponSwitching = false;
                     
-                }
+ 
 
                 break;
 
             case 4:
                 Trident();
-                if (isWeaponSwitching)
-                {
+             
                     trident.gameObject.SetActive(true);
                     chopsticks.gameObject.SetActive(false);
                     knife.gameObject.SetActive(false);
                     katana.gameObject.SetActive(false);
                     isWeaponSwitching = false;
                     
-                }
+
 
                 break;
         }
