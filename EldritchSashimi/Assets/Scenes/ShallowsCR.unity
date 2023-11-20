@@ -7492,7 +7492,7 @@ MonoBehaviour:
   m_AgentTypeID: 0
   m_StartPoint: {x: 0, y: 0.70551527, z: -59.420933}
   m_EndPoint: {x: 0, y: 0.70976543, z: -44.40756}
-  m_Width: 7.275753
+  m_Width: 12.241951
   m_CostModifier: -1
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
@@ -7512,7 +7512,7 @@ MonoBehaviour:
   m_AgentTypeID: 0
   m_StartPoint: {x: 0.22524357, y: 0.70551527, z: 58.34953}
   m_EndPoint: {x: 0, y: 0.70976543, z: 44.99393}
-  m_Width: 7.275753
+  m_Width: 12.274228
   m_CostModifier: -1
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0

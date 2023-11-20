@@ -20922,12 +20922,12 @@ PrefabInstance:
     - target: {fileID: 772904263724757388, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.099976
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 772904263724757388, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -67.79999
+      value: -34.2
       objectReference: {fileID: 0}
     - target: {fileID: 2114046331178403616, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
@@ -21038,6 +21038,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2923156275102994436, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154868201131620462, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1103406250}
+    - target: {fileID: 5154868201131620462, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMain
       objectReference: {fileID: 0}
     - target: {fileID: 5535934672496684949, guid: 5dc21e24eb3da9f44a49ea319dd0193c,
         type: 3}
@@ -22925,7 +22940,7 @@ PrefabInstance:
     - target: {fileID: 4745298814844270828, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189112826809887974, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}

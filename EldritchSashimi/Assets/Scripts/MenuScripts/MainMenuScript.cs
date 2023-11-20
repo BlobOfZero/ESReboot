@@ -27,7 +27,7 @@ public class MainMenuScript : MonoBehaviour
    public void PlayGame()
     {
         SceneManager.LoadScene("ShallowsK");
-        data.playerCoins = 0;
+        data.playerCoins = 1000;
         data.playerWeaponID = 1;
         data.playerAttackWeaponID = 1;
     }

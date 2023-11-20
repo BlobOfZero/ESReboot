@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     StartCoroutine(ChopstickSpecialMove());
                     nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
-                    //specialChopstick.Play();
+                    specialChopstick.Play();
                     isSpecialAttacking = true;
                 }
                 break;
@@ -302,7 +302,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     StartCoroutine(KatanaSpecialMove()); 
                      nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
-                    //specialChopstick.Play();  <-- this is going to be something else obviously
+                    specialChopstick.Play();
                     isSpecialAttacking = true;
                 }
                 break;
@@ -314,8 +314,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     Debug.Log("special move3");
                     StartCoroutine(TridentSpecialMove());
                     nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
-                    //the particle is going to get commented out as there is no particles for it at the current momment 
-                    //specialChopstick.Play(); <-- this is going to be something else obviously
+                    specialChopstick.Play();
                     isSpecialAttacking = true;
                 }
                 break;
@@ -347,8 +346,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     Debug.Log("ultimate move2");
                     StartCoroutine(ChopstickUltimateMove());
                     nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
-                    //this is commented because we don't have the particles for it
-                    //ultimateChopstick.Play();
+                    ultimateChopstick.Play();
                     isUltimateAttacking = true;
                 }
                 break;

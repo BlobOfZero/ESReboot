@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - TridentBullet
+  - Cthulu
   layers:
   - Default
   - TransparentFX

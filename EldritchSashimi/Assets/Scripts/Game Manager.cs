@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         source.Play();        
     }
 
+
     public void IncreaseCoins(int value)
     {
         data.playerCoins += value;
