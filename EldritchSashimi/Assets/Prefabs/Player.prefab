@@ -344,9 +344,8 @@ MonoBehaviour:
   ultimateatana: {fileID: 2045329319797151120}
   WeaponIDs: 1
   actions: {fileID: -944628639613478452, guid: 053cce96a2ed73149a0804f8119d6528, type: 3}
-  dashClip: {fileID: 8300000, guid: dbf2224f1ecad38418726d155820818b, type: 3}
+  dashClip: {fileID: 8300000, guid: 2802c116f7d608745978c1a3c9c4580f, type: 3}
   slashClip: {fileID: 8300000, guid: 3f1f62257c309c843a6845f40ce3edc3, type: 3}
-  hurtClip: {fileID: 0}
   hurtVFX: {fileID: 2483908392489652585}
   playAnim: {fileID: 2712233671197413519}
 --- !u!143 &1592081672574722681
