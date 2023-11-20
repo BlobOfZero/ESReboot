@@ -51,7 +51,6 @@ public class LevelTimer : MonoBehaviour
 
     public void NextLevel()
     {
-        shopUI.SetActive(false);
         SceneManager.LoadScene("Level2Temp");
     }
 

@@ -19,7 +19,10 @@ public class KatanaBullet : MonoBehaviour
         if (other.gameObject.TryGetComponent(out IDamageable Damage))
         {
             Damage.Damage(katanaDamage);
-
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }

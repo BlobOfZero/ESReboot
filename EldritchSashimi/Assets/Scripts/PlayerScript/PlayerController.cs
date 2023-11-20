@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using  System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
@@ -86,16 +86,15 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [Header("for special trident")]
     //**********************************************************
     [SerializeField] private float tridentSpecialTime;
-    [SerializeField] private GameObject tridentSpecial;
-    [SerializeField] private ParticleSystem tridentChopstick;
+    [SerializeField] private GameObject tridentSpecialAttack;
+    [SerializeField] private ParticleSystem tridentSpecial;
     //**********************************************************
 
     [Header("ultimate trident")]
     //**********************************************************
     [SerializeField] private GameObject ultimateAttackTrident;
     [SerializeField] private float ultimateTridentTime;
-    [SerializeField] private ParticleSystem ultimateTrident;
-    private bool canFireTridentUltimate;
+    
     //**********************************************************
 
 
@@ -104,14 +103,14 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private GameObject specialAttackKatana;
     [SerializeField] private float specialKatanaTime;
     [SerializeField] private ParticleSystem specialKatana;
-    private bool canFireKatanaSpecial; 
+    private bool canFireKatanaSpecial;
     //**********************************************************
 
     [Header("ultimate katana")]
     //**********************************************************
     [SerializeField] private float katanaUltimateTime;
     [SerializeField] private GameObject ultimateAttackKatana;
-    [SerializeField] private ParticleSystem katana;
+    [SerializeField] private ParticleSystem ultimateatana;
     //**********************************************************
 
 
@@ -130,6 +129,8 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     [SerializeField] private AudioClip dashClip;
     [SerializeField] private AudioClip slashClip;
 
+    [SerializeField] private ParticleSystem hurtVFX;
+
     // animations
     public Animator playAnim;
 
@@ -143,9 +144,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
         actions.FindActionMap("Player").FindAction("Special").performed += OnSpecial;
         actions.FindActionMap("Player").FindAction("Ultimate").performed += OnUltimate;
-        
-       
-        
+
+
+
     }
     void OnDisable()
     {
@@ -160,37 +161,37 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
 
 
         if (isDashing)
-        {       
+        {
             ApplyDashCooldown();
         }
-        
-        if (isSpecialAttacking) 
+
+        if (isSpecialAttacking)
         {
             ApplySpecialCoolDown();
         }
 
-        if (isUltimateAttacking) 
+        if (isUltimateAttacking)
         {
             ApplyUltimateCooldown();
         }
     }
 
-    void Awake() 
+    void Awake()
     {
         WeaponIDs = data.playerWeaponID;
-        data.playerWeaponID = WeaponIDs;       
-        source = GetComponent<AudioSource>();       
+        data.playerWeaponID = WeaponIDs;
+        source = GetComponent<AudioSource>();
     }
-  
+
     public void Start()
     {
         playAnim = GetComponent<Animator>();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        currentHealth = maxHealth;      
+        currentHealth = maxHealth;
         isDead = false;
-        knifeattack = GetComponent<KnifeAttack>();        
+        knifeattack = GetComponent<KnifeAttack>();
         Time.timeScale = 1;
         isDashing = false;
         isSpecialAttacking = false;
@@ -247,21 +248,21 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
-        playAnim.SetBool("run",true);
+        playAnim.SetBool("run", true);
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
         if (Time.deltaTime > nextdashTime)
         {
-            
+
             StartCoroutine(Dash());
             nextdashTime = Time.deltaTime + cooldowndashTime;
             RegularDash.Play();
             source.PlayOneShot(dashClip);
             isDashing = true;
         }
-        
+
     }
 
     public void OnSpecial(InputAction.CallbackContext context)
@@ -299,10 +300,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.deltaTime > nextFireTimeSpecial)
                 {
                     Debug.Log("special move3");
-                    StartCoroutine(KatanaSpecialMove()); 
-                     nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
+                    StartCoroutine(KatanaSpecialMove());
+                    nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
                     //the particle is going to get commented out as there is no particles for it at the current momment 
-                    specialChopstick.Play();
                     isSpecialAttacking = true;
                 }
                 break;
@@ -314,7 +314,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     Debug.Log("special move3");
                     StartCoroutine(TridentSpecialMove());
                     nextFireTimeSpecial = Time.deltaTime + cooldownTimeSpecial;
-                    specialChopstick.Play();
+                    tridentSpecial.Play();
                     isSpecialAttacking = true;
                 }
                 break;
@@ -358,6 +358,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                     StartCoroutine(KatanaUltimateMove());
                     nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
                     isUltimateAttacking = true;
+                    ultimateatana.Play();
                 }
                 break;
 
@@ -365,7 +366,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
                 if (Time.deltaTime > nextFireTimeUltimate)
                 {
                     Debug.Log("ultimate move4");
-                    StartCoroutine(TridentUltimateMove()); 
+                    StartCoroutine(TridentUltimateMove());
                     nextFireTimeUltimate = Time.deltaTime + cooldownTimeUltimate;
                     isUltimateAttacking = true;
                 }
@@ -373,7 +374,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         }
     }
 
-      
+
 
     public void MovePlayer()
     {
@@ -399,9 +400,9 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     {
         float startTime = Time.time;
         while (Time.time < startTime + dashTime)
-        {         
+        {
             controller.Move(transform.forward * dashSpeed * Time.deltaTime);
-            iFrames = true;           
+            iFrames = true;
             yield return null;
         }
         iFrames = false;
@@ -413,12 +414,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     {
         source.PlayOneShot(slashClip);
         float startTime = Time.time;
-        while (Time.time < startTime + dashAttackTime) 
+        while (Time.time < startTime + dashAttackTime)
         {
             dashAttack.gameObject.SetActive(true);
             controller.Move(transform.forward * dashAttackSpeed * Time.deltaTime);
             iFrames = true;
-            
+
             yield return null;
         }
         dashAttack.gameObject.SetActive(false);
@@ -430,10 +431,10 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         float startTime = Time.time;
         while (Time.time < startTime + ultimateknifetime)
         {
-            ultimateAttack.gameObject.SetActive(true);            
+            ultimateAttack.gameObject.SetActive(true);
             yield return null;
         }
-       ultimateAttack.gameObject.SetActive(false);
+        ultimateAttack.gameObject.SetActive(false);
     }
     //**********************************************
 
@@ -471,18 +472,18 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         float startTime = Time.time;
         while (Time.time < startTime + tridentSpecialTime)
         {
-            tridentSpecial.gameObject.SetActive(true);
+            tridentSpecialAttack.gameObject.SetActive(true);
 
             yield return null;
         }
-        tridentSpecial.gameObject.SetActive(false);
+        tridentSpecialAttack.gameObject.SetActive(false);
     }
 
     IEnumerator TridentUltimateMove()
     {
         Rigidbody rb = Instantiate(ultimateAttackTrident, firepoint.transform.position, firepoint.transform.rotation).GetComponent<Rigidbody>();
-        rb.AddForce(firepoint.forward * bulletspeed, ForceMode.Impulse);     
-        yield return null;              
+        rb.AddForce(firepoint.forward * bulletspeed, ForceMode.Impulse);
+        yield return null;
     }
     //**********************************************
 
@@ -517,6 +518,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         {
             currentHealth -= damageAmount;
             healthText.text = currentHealth.ToString();
+            hurtVFX.Play();
 
             if (currentHealth <= 0)
             {
@@ -528,5 +530,5 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
             }
         }
     }
-   //************************************************
+    //************************************************
 }

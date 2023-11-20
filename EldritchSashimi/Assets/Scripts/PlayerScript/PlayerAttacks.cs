@@ -104,9 +104,6 @@ public class PlayerAttacks : MonoBehaviour
                     knife.gameObject.SetActive(false);
                     katana.gameObject.SetActive(false);
                     isWeaponSwitching = false;
-                    
-
-
                 break;
         }
     }

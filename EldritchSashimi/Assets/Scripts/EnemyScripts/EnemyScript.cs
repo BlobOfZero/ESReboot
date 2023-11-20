@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
 
     [SerializeField] private float AttackRange;
 
-    [SerializeField] private float health = 10;
+    public float health = 10;
 
     [SerializeField] private float Maxhealth = 10;
 
