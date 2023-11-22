@@ -2994,7 +2994,7 @@ MonoBehaviour:
   shopUI: {fileID: 238136930}
   coinText: {fileID: 1549177777}
   timeRemaining: 30
-  maxTime: 3
+  maxTime: 30
   timerIsRunning: 0
   manager: {fileID: 670810010}
   timerText: {fileID: 1698820628}
