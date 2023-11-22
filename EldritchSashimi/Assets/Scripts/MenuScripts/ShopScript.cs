@@ -64,7 +64,6 @@ public class ShopScript : MonoBehaviour
         {
             dashBuffLimit += 1;
             PC.cooldowndashTime -= 0.5f;
-            purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
             coinText.text = data.playerCoins.ToString();
@@ -79,7 +78,6 @@ public class ShopScript : MonoBehaviour
         {
             specialBuffLimit += 1;
             PC.cooldownTimeSpecial -= 0.5f;
-            purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
             coinText.text = data.playerCoins.ToString();
@@ -94,7 +92,6 @@ public class ShopScript : MonoBehaviour
         {
             ultimateBuffLimit += 1;
             PC.cooldownTimeUltimate -= 0.5f;
-            purchaseAudio.Play();
             manager.DecreaseCoins(100);
             source.PlayOneShot(clip);
             coinText.text = data.playerCoins.ToString();
@@ -106,7 +103,6 @@ public class ShopScript : MonoBehaviour
     {
         if ((data.playerCoins >= costTrident) && TridentBuff <= 4)
         {
-            purchaseAudio.Play();
             manager.DecreaseCoins(costTrident);
             TridentBuff += 1;
             tridentPurchases += 1;
@@ -147,7 +143,6 @@ public class ShopScript : MonoBehaviour
         if ((data.playerCoins >= costChopstick) && ChopstickBuff  <= 4)
         {
             
-            purchaseAudio.Play();
             manager.DecreaseCoins(costChopstick);
             ChopstickBuff += 1;
            chopstickPurchases += 1;
@@ -188,7 +183,6 @@ public class ShopScript : MonoBehaviour
         if ((data.playerCoins >= costKatana) && KatanaBuff <= 4)
         {
             
-            purchaseAudio.Play();
             manager.DecreaseCoins(costKatana);
             KatanaBuff += 1;
             katanaPurchases += 1;
