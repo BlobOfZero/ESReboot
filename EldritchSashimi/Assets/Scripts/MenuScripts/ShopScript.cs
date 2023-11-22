@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class ShopScript : MonoBehaviour
@@ -23,7 +24,15 @@ public class ShopScript : MonoBehaviour
     public int costTrident;
     public int costChopstick;
     public int costKatana;
-
+    [SerializeField] private Image statusOfPurchaseTrident1;
+    [SerializeField] private Image statusOfPurchaseTrident2;
+    [SerializeField] private Image statusOfPurchaseTrident3;
+    [SerializeField] private Image statusOfPurchaseChopstick1;
+    [SerializeField] private Image statusOfPurchaseChopstick2;
+    [SerializeField] private Image statusOfPurchaseChopstick3;
+    [SerializeField] private Image statusOfPurchaseKatana1;
+    [SerializeField] private Image statusOfPurchaseKatana2;
+    [SerializeField] private Image statusOfPurchaseKatana3;
     //trident stuff
     //****************************************
     private float TridentBuff;
@@ -47,7 +56,19 @@ public class ShopScript : MonoBehaviour
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         PA = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttacks>();
         source = manager.GetComponent<AudioSource>();
-        
+
+        statusOfPurchaseTrident1.gameObject.SetActive(false);
+        statusOfPurchaseTrident2.gameObject.SetActive(false);
+        statusOfPurchaseTrident3.gameObject.SetActive(false);
+
+        statusOfPurchaseChopstick1.gameObject.SetActive(false);
+        statusOfPurchaseChopstick2.gameObject.SetActive(false);
+        statusOfPurchaseChopstick3.gameObject.SetActive(false);
+
+        statusOfPurchaseKatana1.gameObject.SetActive(false);
+        statusOfPurchaseKatana2.gameObject.SetActive(false);
+        statusOfPurchaseKatana3.gameObject.SetActive(false);
+
     }
 
     private void Update()
@@ -101,7 +122,7 @@ public class ShopScript : MonoBehaviour
 
     public void TridentPurchase()
     {
-        if ((data.playerCoins >= costTrident) && TridentBuff <= 4)
+        if ((data.playerCoins >= costTrident) && TridentBuff <= 2)
         {
             manager.DecreaseCoins(costTrident);
             TridentBuff += 1;
@@ -118,21 +139,24 @@ public class ShopScript : MonoBehaviour
                     data.playerWeaponID = 4;
                     costTrident += 100;
                     coinText.text = data.playerCoins.ToString();
-                break;
+                    statusOfPurchaseTrident1.gameObject.SetActive(true);
+                    break;
 
                 case 2:
                     Debug.Log("lul");
                     PA.tridentcountdownDuration -= 0.125f;
                     costTrident += 100;
-                    coinText.text = data.playerCoins.ToString();
-                break;
+                    coinText.text = data.playerCoins.ToString();                
+                    statusOfPurchaseTrident2.gameObject.SetActive(true);
+                    break;
 
                 case 3:
                     Debug.Log("ha");
                     PA.tridentcountdownDuration -= 0.125f;
                     costTrident += 100;
-                    coinText.text = data.playerCoins.ToString();
-                break;
+                    coinText.text = data.playerCoins.ToString();                  
+                    statusOfPurchaseTrident3.gameObject.SetActive(true);
+                    break;
             }
         }
            
@@ -140,7 +164,7 @@ public class ShopScript : MonoBehaviour
 
     public void ChopstickPurchase()
     {
-        if ((data.playerCoins >= costChopstick) && ChopstickBuff  <= 4)
+        if ((data.playerCoins >= costChopstick) && ChopstickBuff  <= 2)
         {
             
             manager.DecreaseCoins(costChopstick);
@@ -158,6 +182,7 @@ public class ShopScript : MonoBehaviour
                     data.playerWeaponID = 2;
                     costChopstick += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    statusOfPurchaseChopstick1.gameObject.SetActive(true);
                     break;
 
                 case 2:
@@ -165,6 +190,7 @@ public class ShopScript : MonoBehaviour
                     PA.chopstickcountdownDuration -= 0.25f;
                     costChopstick += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    statusOfPurchaseChopstick2.gameObject.SetActive(true);
                     break;
 
                 case 3:
@@ -172,6 +198,7 @@ public class ShopScript : MonoBehaviour
                     PA.chopstickcountdownDuration -= 0.25f;
                     costChopstick += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    statusOfPurchaseChopstick3.gameObject.SetActive(true);
                     break;
             }
         }
@@ -180,7 +207,7 @@ public class ShopScript : MonoBehaviour
 
     public void KatanaPurchase()
     {
-        if ((data.playerCoins >= costKatana) && KatanaBuff <= 4)
+        if ((data.playerCoins >= costKatana) && KatanaBuff <= 2)
         {
             
             manager.DecreaseCoins(costKatana);
@@ -198,6 +225,7 @@ public class ShopScript : MonoBehaviour
                     data.playerWeaponID = 3;
                     costKatana += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    statusOfPurchaseKatana1.gameObject.SetActive(true);
                     break;
 
                 case 2:
@@ -205,6 +233,7 @@ public class ShopScript : MonoBehaviour
                     PA.katanacountdownDuration -= 0.25f;
                     costKatana += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    statusOfPurchaseKatana2.gameObject.SetActive(true);
                     break;
 
                 case 3:
@@ -212,6 +241,7 @@ public class ShopScript : MonoBehaviour
                     PA.katanacountdownDuration -= 0.25f;
                     costKatana += 100;
                     coinText.text = "Tentacles: " + data.playerCoins.ToString();
+                    statusOfPurchaseKatana3.gameObject.SetActive(true);
                     break;
             }
         }
