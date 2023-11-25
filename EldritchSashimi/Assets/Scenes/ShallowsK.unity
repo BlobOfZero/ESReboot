@@ -2369,23 +2369,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1209099430946361282, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 1209099430946361282, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 1209099430946361282, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1334546330460267086, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2401,163 +2384,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810011}
-    - target: {fileID: 3690201152577663354, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 3690201152577663354, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 3690201152577663354, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810008}
-    - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: leaveShop
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LevelTimer, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4745298814844270828, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_Name
       value: ShopUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4745298814844270828, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5116703234992794851, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5116703234992794851, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5116703234992794851, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5132586354979282508, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5132586354979282508, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5132586354979282508, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189112826809887974, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810011}
-    - target: {fileID: 5363071516414845330, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5363071516414845330, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5363071516414845330, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5526457358679566834, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5526457358679566834, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 5526457358679566834, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5591911461995046890, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810011}
-    - target: {fileID: 6356625788806022900, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 6356625788806022900, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -3401225613716844859, guid: cc7747b8738a5a44e9b746654dba2b73,
-        type: 2}
-    - target: {fileID: 6356625788806022900, guid: 2cbb904fd3612e24f953917eb321c05e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6721062708838904625, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_RootOrder
