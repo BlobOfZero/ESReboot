@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
+
 public class EnemyScript : MonoBehaviour, IDamageable
 {
     public NavMeshAgent agent;
@@ -29,10 +31,17 @@ public class EnemyScript : MonoBehaviour, IDamageable
     // Coin prefab for drop
     public GameObject coinPrefab;
 
-    void awake()
+    // audio
+    AudioSource source;
+    [SerializeField] private AudioClip clip;
+
+    
+
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<FloatingHealthbar>();
+        source = GetComponent<AudioSource>();
     }
 
 
@@ -82,6 +91,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     {
         if (health <= 0)
         {
+            source.PlayOneShot(clip);
             Destroy(gameObject);
             Instantiate(coinPrefab, transform.position, transform.rotation);
         }

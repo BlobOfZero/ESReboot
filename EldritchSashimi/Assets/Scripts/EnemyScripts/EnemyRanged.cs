@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
+
 public class EnemyRanged : MonoBehaviour, IDamageable
 {
     public NavMeshAgent agent;
@@ -37,10 +39,15 @@ public class EnemyRanged : MonoBehaviour, IDamageable
     // Coin prefab for drop
     public GameObject coinPrefab;
 
-    void awake()
+    // audio
+    public AudioClip clip;
+    AudioSource source;
+
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<FloatingHealthbar>();
+        source = GetComponent<AudioSource>();
     }
 
   
@@ -133,6 +140,7 @@ public class EnemyRanged : MonoBehaviour, IDamageable
     {
         if (health <= 0)
         {
+            source.PlayOneShot(clip);
             Destroy(gameObject);
             Instantiate(coinPrefab, transform.position, transform.rotation);
         }
