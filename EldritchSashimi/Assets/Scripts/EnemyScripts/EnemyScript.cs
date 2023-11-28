@@ -35,13 +35,25 @@ public class EnemyScript : MonoBehaviour, IDamageable
     AudioSource source;
     [SerializeField] private AudioClip clip;
 
-    
+    //playerdata refrence
+    public PlayerData data;
+
+    //DLC
+    [Header("DLC")]
+    public bool dlcInstalledEnemy;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<FloatingHealthbar>();
         source = GetComponent<AudioSource>();
+
+        dlcInstalledEnemy = data.playerDLCInstalled;
+
+        if (dlcInstalledEnemy)
+        {
+            Debug.Log("dlc installed enemy");
+        }
     }
 
 
@@ -51,6 +63,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
         AttackPlayerInRange();
         death();
 
+        
     }
 
     void AttackPlayerInRange()

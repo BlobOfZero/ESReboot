@@ -43,11 +43,25 @@ public class EnemyRanged : MonoBehaviour, IDamageable
     public AudioClip clip;
     AudioSource source;
 
+    //playerdata refrence
+    public PlayerData data;
+
+    //DLC
+    [Header("DLC")]
+    public bool dlcInstalledEnemyRanged;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         healthBar = GetComponentInChildren<FloatingHealthbar>();
         source = GetComponent<AudioSource>();
+
+        dlcInstalledEnemyRanged = data.playerDLCInstalled;
+
+        if (dlcInstalledEnemyRanged)
+        {
+            Debug.Log("dlc installed enemy range");
+        }
     }
 
   

@@ -11,4 +11,6 @@ public class PlayerData : ScriptableObject
     public int playerAttackWeaponID;
 
    public int playerWeaponID;
+
+    public bool playerDLCInstalled;
 }

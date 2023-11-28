@@ -139,6 +139,12 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     private KnifeAttack knifeattack;
     //**********************************************************
 
+    //DLC
+    //**********************************************************
+    [Header("DLC")]
+    public bool dlcInstalled;
+    //**********************************************************
+
     void OnEnable()
     {
         actions.FindActionMap("Player").FindAction("Dash").performed += OnDash;
@@ -174,13 +180,21 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
         {
             ApplyUltimateCooldown();
         }
+
     }
 
     void Awake()
     {
         WeaponIDs = data.playerWeaponID;
         data.playerWeaponID = WeaponIDs;
+        dlcInstalled = data.playerDLCInstalled;
         source = GetComponent<AudioSource>();
+
+        if (dlcInstalled)
+        {
+            Debug.Log("dlc Installed");
+
+        }
     }
 
     public void Start()

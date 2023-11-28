@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
         source.Play();        
     }
 
+    public void DLCInstall()
+    {
+        data.playerDLCInstalled = true;
+    }
+
+    public void DLCUninstall()
+    {
+        data.playerDLCInstalled = false;
+    }
 
     public void IncreaseCoins(int value)
     {
