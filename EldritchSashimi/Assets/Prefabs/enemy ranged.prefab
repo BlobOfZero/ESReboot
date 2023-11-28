@@ -135,7 +135,7 @@ MonoBehaviour:
   PlayerInAttackRange: 0
   AttackRange: 6
   RunAwayDistance: 2
-  Projectile: {fileID: 6733915191977176587, guid: fd4015a7de4401949aadac68e07e0ce7,
+  Projectile: {fileID: 919132149155446097, guid: 0558ece060e8b4d48bf0bc23f6ead0d9,
     type: 3}
   RateOfAttacks: 3
   firepoint: {fileID: 726932747504489134}
@@ -144,17 +144,7 @@ MonoBehaviour:
   healthBar: {fileID: 3383109329919793357}
   coinPrefab: {fileID: 6497540146959266414, guid: e4c86727e8587314790a1a88f01b813f,
     type: 3}
-<<<<<<< Updated upstream
   clip: {fileID: 8300000, guid: 42deb6e3fe9e7b74590a47f4fb521727, type: 3}
-=======
-<<<<<<< HEAD
-  clip: {fileID: 0}
-  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
-  dlcInstalledEnemyRanged: 0
-=======
-  clip: {fileID: 8300000, guid: 42deb6e3fe9e7b74590a47f4fb521727, type: 3}
->>>>>>> fd4c2e9cd693eb17b40a1c6fd1c28a8d56821e96
->>>>>>> Stashed changes
 --- !u!54 &4795585192142061709
 Rigidbody:
   m_ObjectHideFlags: 0
