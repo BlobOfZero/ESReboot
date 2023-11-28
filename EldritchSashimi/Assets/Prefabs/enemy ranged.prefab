@@ -135,7 +135,7 @@ MonoBehaviour:
   PlayerInAttackRange: 0
   AttackRange: 6
   RunAwayDistance: 2
-  Projectile: {fileID: 919132149155446097, guid: 0558ece060e8b4d48bf0bc23f6ead0d9,
+  Projectile: {fileID: 6733915191977176587, guid: fd4015a7de4401949aadac68e07e0ce7,
     type: 3}
   RateOfAttacks: 3
   firepoint: {fileID: 726932747504489134}

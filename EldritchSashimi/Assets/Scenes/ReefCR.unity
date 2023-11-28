@@ -13613,6 +13613,12 @@ PrefabInstance:
       objectReference: {fileID: 1733222836}
     - target: {fileID: 6566003970972540870, guid: e2e7f6af0f66ba840816bcf51c626240,
         type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 6733915191977176587, guid: fd4015a7de4401949aadac68e07e0ce7,
+        type: 3}
+    - target: {fileID: 6566003970972540870, guid: e2e7f6af0f66ba840816bcf51c626240,
+        type: 3}
       propertyPath: AttackRange
       value: 7
       objectReference: {fileID: 0}
@@ -15546,7 +15552,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6b3ee68be234d5441ab26f51767401f9, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 54f3ab0f2da543d43895367969ea428b, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1295053819
 Transform:
