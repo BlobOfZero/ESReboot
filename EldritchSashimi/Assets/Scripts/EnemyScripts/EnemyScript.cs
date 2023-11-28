@@ -97,6 +97,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     {
         Debug.Log("Enemy damaged for" + damageAmount);
         health -= damageAmount;
+        source.PlayOneShot(clip, 0.1f);
         healthBar.UpdateHealthbar(health , Maxhealth);
     }
 
@@ -104,7 +105,7 @@ public class EnemyScript : MonoBehaviour, IDamageable
     {
         if (health <= 0)
         {
-            source.PlayOneShot(clip);
+           
             Destroy(gameObject);
             Instantiate(coinPrefab, transform.position, transform.rotation);
         }

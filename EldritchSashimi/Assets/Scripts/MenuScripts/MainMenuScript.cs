@@ -56,6 +56,14 @@ public class MainMenuScript : MonoBehaviour
         data.playerAttackWeaponID = 1;
     }
 
+    public void DLC()
+    {
+        SceneManager.LoadScene("DLC");
+        data.playerCoins = 0;
+        data.playerWeaponID = 1;
+        data.playerAttackWeaponID = 1;
+    }
+
     public void LevelSelect()
     {
         LevelSelectPanel.SetActive(true);

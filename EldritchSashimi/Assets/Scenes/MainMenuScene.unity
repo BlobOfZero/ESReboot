@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 74a8f29ab5253804aba13e82f0464fe2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b123ca15be8e5f4ba645169970c91a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1887,6 +1887,18 @@ MonoBehaviour:
       - m_Target: {fileID: 130565617}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: DLCInstall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1922429032}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: DLC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

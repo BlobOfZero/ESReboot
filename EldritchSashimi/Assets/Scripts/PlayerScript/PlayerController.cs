@@ -426,7 +426,7 @@ public class PlayerController : MonoBehaviour, IDamageablePlayer
     //**********************************************
     IEnumerator DashAttack()
     {
-        source.PlayOneShot(slashClip);
+        source.PlayOneShot(slashClip, 0.1f);
         float startTime = Time.time;
         while (Time.time < startTime + dashAttackTime)
         {

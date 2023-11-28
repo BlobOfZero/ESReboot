@@ -145,6 +145,8 @@ MonoBehaviour:
   coinPrefab: {fileID: 6497540146959266414, guid: e4c86727e8587314790a1a88f01b813f,
     type: 3}
   clip: {fileID: 8300000, guid: 42deb6e3fe9e7b74590a47f4fb521727, type: 3}
+  data: {fileID: 11400000, guid: 2f6ca2ff583ef8f4fa357a20543508af, type: 2}
+  dlcInstalledEnemyRanged: 0
 --- !u!54 &4795585192142061709
 Rigidbody:
   m_ObjectHideFlags: 0
