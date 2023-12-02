@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.16731933, g: 0.44295412, b: 0.754717, a: 1}
+  m_FogColor: {r: 0.1724813, g: 0.42828655, b: 0.7169812, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.02
   m_LinearFogStart: 0
@@ -18371,7 +18371,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.49056602, g: 0.4204126, b: 0.22908506, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -22932,12 +22932,12 @@ PrefabInstance:
     - target: {fileID: 2607023516020406528, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -23
+      value: -141
       objectReference: {fileID: 0}
     - target: {fileID: 2607023516020406528, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -245
       objectReference: {fileID: 0}
     - target: {fileID: 3156491600895605092, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}

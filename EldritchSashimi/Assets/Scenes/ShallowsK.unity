@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.31648272, g: 0.3764315, b: 0.5283019, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: dda7db13deba52444848682ccca42dd2, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -2384,6 +2384,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 670810011}
+    - target: {fileID: 2607023516020406528, guid: 2cbb904fd3612e24f953917eb321c05e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -248
+      objectReference: {fileID: 0}
     - target: {fileID: 4368839410371040712, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2393,6 +2398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShopUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745298814844270828, guid: 2cbb904fd3612e24f953917eb321c05e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5189112826809887974, guid: 2cbb904fd3612e24f953917eb321c05e,
         type: 3}
